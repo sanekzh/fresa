@@ -92,7 +92,7 @@ requestLoginAPI(BuildContext context, String phone, String code) async {
 
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => NewListPage()),
+        MaterialPageRoute(builder: (context) => NewListPage(token_t: responseJson['token'])),
             (Route<dynamic> route) => false,
       );
 //      Navigator.of(context).pushReplacementNamed('/list_new');
