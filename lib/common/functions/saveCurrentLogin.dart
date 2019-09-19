@@ -25,6 +25,7 @@ Future<String> saveCurrentLogin(Map responseJson, String phone) async {
   await preferences.setString('LastFirebaseToken', (firebase_token != null && firebase_token.length > 0) ? firebase_token : "");
   await preferences.setInt('LastUserId', (pk != null && pk > 0) ? pk : 0);
   await preferences.setString('LastPhone', (phone != null && phone.length > 0) ? phone : 0);
+  
   return token;
 }
 
