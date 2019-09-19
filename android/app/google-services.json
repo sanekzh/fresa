@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "193414656393",
+    "firebase_url": "https://fresa-d659c.firebaseio.com",
+    "project_id": "fresa-d659c",
+    "storage_bucket": "fresa-d659c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193414656393:android:9a4edc65c8d6d8d30eb158",
+        "android_client_info": {
+          "package_name": "ru.catapulto.fresa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193414656393-n2rgjgh7lji9jv84i91eaq2lrfm21qj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOFsS5nY-IRLl1jNFBgTtNHPdDjmK2VYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193414656393-n2rgjgh7lji9jv84i91eaq2lrfm21qj0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "193414656393-4siru7obiapjhv7uf9a1iaabno6uefem.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ru.catapulto.fresa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
