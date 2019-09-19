@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>193414656393-4siru7obiapjhv7uf9a1iaabno6uefem.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.193414656393-4siru7obiapjhv7uf9a1iaabno6uefem</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA6R7H6qeOOAgkIPXny2BFs4SjxTZ17Erg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>193414656393</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ru.catapulto.fresa</string>
+	<key>PROJECT_ID</key>
+	<string>fresa-d659c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fresa-d659c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:193414656393:ios:292fda5566b748a40eb158</string>
+	<key>DATABASE_URL</key>
+	<string>https://fresa-d659c.firebaseio.com</string>
+</dict>
+</plist>
