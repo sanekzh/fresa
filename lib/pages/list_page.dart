@@ -2,16 +2,12 @@ import 'dart:convert';
 
 import 'package:fresa/common/functions/getToken.dart';
 import 'package:fresa/pages/mainpage.dart';
+import 'package:fresa/pages/menu.dart';
 import 'package:http/http.dart' as http;
 import 'package:fresa/common/functions/saveLogout.dart';
-import 'package:fresa/models/address.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fresa/common/apifunctions/requestLoginApi.dart';
-import 'package:fresa/models/city.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/services.dart';
 import 'package:fresa/models/company.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -26,7 +22,7 @@ class NewListPage extends StatefulWidget {
 }
 
 class _NewListPageState extends State<NewListPage> {
-  City city_from, city_to;
+
   String _username = '';
   String _individualName = '';
   String _token = '';
@@ -64,10 +60,6 @@ class _NewListPageState extends State<NewListPage> {
         _individualName = value != null ? value : '';
       });
     });
-//    getToken().then((result) {
-////      token_user = result;
-//      _fetchCompanyData(result);
-//    });
 
     loadTokenData().then((value) {
       setState(() {
@@ -126,15 +118,15 @@ class _NewListPageState extends State<NewListPage> {
     final response_company = await http.get(url, headers: headerToken);
     print(json.decode(response_company.body)['results'] as List);
     if (response_company.statusCode == 200) {
-      print(response_company.body);
+      print("list get request - ${response_company.body}");
       list_company = (json.decode(response_company.body)['results'] as List)
           .map((data) => new Company.fromJson(data))
           .toList();
-      if (list_company.length >= 1) {
-        setState(() {
-          isLoading = false;
-        });
-      }
+
+      setState(() {
+        isLoading = false;
+      });
+
     } else {
       throw Exception('Failed to load company');
     }
@@ -203,7 +195,8 @@ class _NewListPageState extends State<NewListPage> {
               ? Center(
                   child: CircularProgressIndicator(),
                 )
-              : new ListView.builder(
+              : list_company.length != 0 ?
+          new ListView.builder(
                   itemCount: list_company == null ? 0 : list_company.length,
                   itemBuilder: (BuildContext context, int index) {
                     return new Container(
@@ -212,34 +205,120 @@ class _NewListPageState extends State<NewListPage> {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
                             new Card(
+                              elevation: 10,
+                              shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(5.0)),
                               child: new Container(
                                 padding: new EdgeInsets.all(20.0),
                                 child: new Column(
                                   children: <Widget>[
-                                    new Row(children: <Widget>[
+                                    new Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
                                       new Text(
                                         list_company[index].name,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      new Text('  '),
+                                      new Text('                    '),
                                       new Text(
-                                          list_company[index]
-                                              .balance
-                                              .toString(),
+                                          "Balance:  ${list_company[index].balance.toString()}",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.bold))
+                                              fontWeight: FontWeight.bold)),
+                                          Icon(
+                                            Icons.euro_symbol,
+                                            color: Colors.black,
+                                            size: 30.0,
+                                          ),
+                                    ]),
+                                    new Row(children: <Widget>[
+                                      new Text('',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold)),
+                                    ]),
+                                    new Row(children: <Widget>[
+                                      new Text('My special offers:',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold)),
+                                    ]),
+                                    new Row(children: <Widget>[
+                                      new Text('',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold)),
+                                    ]),
+                                    new Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.blur_circular,
+                                          color: Colors.blue,
+                                          size: 15.0,
+                                        ),
+                                        new Text('   '),
+                                        new Text(
+                                            list_company[index].offers.length >=
+                                                    1
+                                                ? list_company[index]
+                                                    .offers[0]['name']
+                                                    .toString()
+                                                : ''),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.blur_circular,
+                                          color: Colors.blue,
+                                          size: 15.0,
+                                        ),
+                                        new Text('   '),
+                                        new Text(
+                                            list_company[index].offers.length >=
+                                                    2
+                                                ? list_company[index]
+                                                    .offers[1]['name']
+                                                    .toString()
+                                                : ''),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: <Widget>[
+                                        new Text(
+                                            list_company[index].offers.length >=
+                                                    3
+                                                ? list_company[index]
+                                                    .offers[2]['name']
+                                                    .toString()
+                                                : ''),
+                                      ],
+                                    ),
+                                    new Row(children: <Widget>[
+                                      RaisedButton(
+                                          shape: new RoundedRectangleBorder(
+                                              borderRadius: new BorderRadius.circular(5.0)),
+                                          child: Text("Menu",
+                                              style: TextStyle(color: Colors.white,
+                                                  fontSize: 18.0)
+                                          ),
+                                          color: Colors.redAccent,
+                                          onPressed: () {
+                                            var route = new MaterialPageRoute(
+                                              builder: (BuildContext context) => new MenuPage(companyName: list_company[index].name),
+                                            );
+                                            Navigator.of(context).push(route);
+
+                                            }),
                                     ]),
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
                     );
                   },
-                ),
+                ) : Center(child: Text('You don\'t have a companies ')),
         );
       }),
     );

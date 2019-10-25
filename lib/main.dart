@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fresa/pages/mainpage.dart';
 import 'package:fresa/pages/code_registration.dart';
 import 'package:fresa/pages/list_page.dart';
+import 'package:fresa/pages/menu.dart';
 
 
 ThemeData buildTheme() {
@@ -26,7 +27,8 @@ void main() => runApp(MaterialApp(
   routes: {
     '/': (context) => MainPage(),
     '/list' : (context) => CodeRegistrationPage(),
-    '/list_new': (context) => NewListPage()
+    '/list_new': (context) => NewListPage(),
+    '/menu': (context) => MenuPage(),
 
   },
 ));

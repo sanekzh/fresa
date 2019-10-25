@@ -4,11 +4,9 @@ import 'package:fresa/common/functions/getToken.dart';
 import 'package:fresa/pages/list_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:fresa/common/functions/saveLogout.dart';
-import 'package:fresa/models/address.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fresa/common/apifunctions/requestLoginApi.dart';
-import 'package:fresa/models/city.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +14,35 @@ import 'package:flutter/services.dart';
 
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
+
+void pushTokenToServer(token) async {
+  var url_update = 'http://api.mermelando.es/api/customer/firebase/update/';
+  Map<String, String> body_update = {
+    'firebase_token': token,
+  };
+  var token_user;
+  await getToken().then((result) {
+    token_user = result;
+  });
+  print("FIREBASE UPDATE TOKEN - ${token_user}");
+  if (token_user != null){
+    Map<String, String> headerToken = {
+      "X-Token": "Token ${token_user}"
+    };
+    final response = await http.put(
+      url_update,
+      headers: headerToken,
+      body: body_update,
+    );
+    if(response.statusCode == 200){
+      print('OK UPDATE');
+      print(response.body);
+    } else {
+      print(response.body);
+      print('ERROR UPDATE');
+    }
+  }
+}
 
 class MainPage extends StatefulWidget {
   int selectedDrawerIndex;
@@ -28,16 +55,18 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
-  City city_from, city_to;
-  String _username = '';
+  String _username = '', phone= '';
   String _individualName = '';
   int _selectedDrawerIndex = 0;
   int max_limit = 10;
   String _ordering = '';
+  var isLoading = false;
+
 
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   String _homeScreenText = "Waiting for token...";
   String _messageText = "Waiting for message...";
+
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -111,32 +140,7 @@ class _MainPageState extends State<MainPage> {
     });
 
   }
-  void pushTokenToServer(token) async {
-    var url_update = 'http://api.mermelando.es/api/customer/firebase/update/';
-    Map<String, String> body_update = {
-      'firebase_token': token,
-    };
-    var token_user;
-    await getToken().then((result) {
-      token_user = result;
-    });
-    print("FIREBASE UPDATE TOKEN - ${token_user}");
-    Map<String, String> headerToken = {
-      "X-Token": "Token ${token_user}"
-    };
-    final response = await http.put(
-      url_update,
-      headers: headerToken,
-      body: body_update,
-    );
-    if(response.statusCode == 200){
-      print('OK UPDATE');
-      print(response.body);
-    } else {
-      print(response.body);
-      print('ERROR UPDATE');
-    }
-  }
+
   void firebaseCloudMessaging_Listeners() {
 //    if (Platform.isIOS) iOS_Permission();
 
@@ -194,43 +198,110 @@ class _MainPageState extends State<MainPage> {
   }
 
   final TextEditingController _phoneNumberController = TextEditingController();
-  final TextEditingController _codeController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
 
   PhonePage() {
     return Container(
         padding: new EdgeInsets.all(25.0),
-        child: Column(
+        child: isLoading
+            ? Align(child: Container(
+          color: Colors.grey[300],
+          width: 70.0,
+          height: 70.0,
+          child: new Padding(padding: const EdgeInsets.all(5.0),child: new Center(child: new CircularProgressIndicator())),
+        ),alignment: FractionalOffset.center,)
+//        Center(
+//          child: CircularProgressIndicator(),
+//        )
+            :Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
 
           children: <Widget>[
-            TextField(
-//              obscureText: true,
-              controller: _phoneNumberController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-
-                border: OutlineInputBorder(),
-                focusColor: Colors.redAccent,
-                labelText: 'Enter your phone number',
+            Form(
+              key: this._formKey,
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter phone';
+                          }
+                        },
+                        controller: _phoneNumberController,
+                        keyboardType: TextInputType.number,
+                        onSaved: (value) => phone = value,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: "Enter your phone number")),
+                    Padding(
+                      padding:
+                      EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+                    ),
+                    Container(
+                      height: 45.0,
+                      width: double.infinity,
+                      margin: const EdgeInsets.only(bottom: 1.0),
+                      child: RaisedButton(
+                        onPressed: () {
+                          if (_formKey.currentState.validate()) {
+                            _formKey.currentState.save();
+                            setState(() {
+                              isLoading = true;
+                            });
+                            SystemChannels.textInput
+                                .invokeMethod('TextInput.hide');
+                            requestCheckPhone(context, _phoneNumberController.text);
+                            setState(() {
+                              isLoading = false;
+                            });
+                          }
+                        },
+                        child: Text("GO",
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 18.0)),
+                        color: Colors.redAccent,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-            Container(height: 45.0,
-              width: double.infinity,
-              child: RaisedButton(
-                onPressed: () {
-                  print('${_phoneNumberController.text}, ${_codeController.text}');
-                  SystemChannels.textInput.invokeMethod('TextInput.hide');
-                  var s = requestLoginAPI(context, _phoneNumberController.text, _codeController.text);
-                  print(s);
-                },
-                child: Text("GO",
-                    style: TextStyle(color: Colors.white,
-                        fontSize: 18.0)
-                ),
-                color: Colors.redAccent,
-              ),
-            )
+//            TextField(
+////              obscureText: true,
+//              controller: _phoneNumberController,
+//              keyboardType: TextInputType.number,
+//              cursorColor: Colors.redAccent,
+//              decoration: InputDecoration(
+//
+//                border: OutlineInputBorder(borderRadius: new BorderRadius.circular(0.0)),
+//                focusColor: Colors.redAccent,
+//                labelText: 'Enter your phone number',
+//              ),
+//            ),
+//            Padding(
+//              padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
+//            ),
+//            Container(height: 45.0,
+//              width: double.infinity,
+//              child: RaisedButton(
+//                onPressed: () {
+//                  print('${_phoneNumberController.text}, ${_codeController.text}');
+//                  SystemChannels.textInput.invokeMethod('TextInput.hide');
+//                  print(" _phoneNumberController ${_phoneNumberController.text} ${_codeController.text} ");
+//                  var s = requestCheckPhone(context, _phoneNumberController.text);
+//                  print(s);
+//                },
+//                child: Text("GO",
+//                    style: TextStyle(color: Colors.white,
+//                        fontSize: 18.0)
+//                ),
+//                color: Colors.redAccent,
+//              ),
+//            )
           ],
         )
 
@@ -245,60 +316,6 @@ class _MainPageState extends State<MainPage> {
         ),
     );
   }
-
-//  AddressList() {
-//    return Builder(builder: (BuildContext context) {
-//      return new Container(
-//        child: isLoading
-//            ? Center(
-//          child: CircularProgressIndicator(),
-//        )
-//            : new ListView.builder(
-//          itemCount: list_company == null ? 0 : list_company.length,
-//          itemBuilder: (BuildContext context, int index) {
-//            return new Container(
-//              child: new Center(
-//                child: new Column(
-//                  crossAxisAlignment: CrossAxisAlignment.stretch,
-//                  children: <Widget>[
-//                    new Card(
-//                      child: new Container(
-//                        padding: new EdgeInsets.all(20.0),
-//                        child: new Column(
-//                          children: <Widget>[
-//                            new Row(children: <Widget>[
-//                              new Text(
-//                                list_company[index].name,
-//                                style: TextStyle(
-//                                    fontWeight: FontWeight.bold),
-//                              ),
-//                              new Text('  '),
-//                              new Text(list_company[index].balance.toString(),
-//                                  style: TextStyle(
-//                                      fontWeight: FontWeight.bold))
-//                            ]),
-//                          ],
-//                        ),
-//                      ),
-//                    )
-//                  ],
-//                ),
-//              ),
-//            );
-//          },
-//        ),
-//      );
-//    });
-//  }
-
-//  _getDrawerItemWidget(int pos) {
-//    switch (pos) {
-//      case 0:
-//        return MainPage();
-//      case 1:
-//        return AddressList();
-//    }
-//  }
 
   @override
   Widget build(BuildContext context) {
