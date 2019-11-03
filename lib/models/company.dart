@@ -5,13 +5,15 @@ class Company {
   final String name;
   final String balance;
   final List offers;
+  final bool has_menu;
 
 
   Company._({
     this.id,
     this.name,
     this.balance,
-    this.offers
+    this.offers,
+    this.has_menu
   });
 
   static String utf8convert(String text) {
@@ -26,6 +28,7 @@ class Company {
         name: utf8convert(json['name'] as String),
         balance: json['balance'] as String,
         offers: json['offers'] as List,
+        has_menu: json['has_menu'] as bool
     );
   }
 }

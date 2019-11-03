@@ -161,6 +161,47 @@ class _NewListPageState extends State<NewListPage> {
     });
   }
 
+  List<Widget> list = [];
+  List<Widget> _buildRowList(offers) {
+    List<Widget> lines = [];
+    lines.add(
+      Row(children: <Widget>[
+        new Text('My special offers:',
+            style: TextStyle(
+                fontWeight: FontWeight.bold)),
+      ]),
+    );
+    lines.add(
+      Padding(
+        child: Container(color: Colors.white,),
+        padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+      ),
+    );
+    for (var offer in offers) {
+        lines.add(
+          new Row(
+            children: <Widget>[
+              Icon(
+                Icons.blur_circular,
+                color: Colors.blue,
+                size: 15.0,
+              ),
+              new Text('   '),
+              new Text(
+                  offer['name']),
+            ],
+          ),
+        );
+    }
+    lines.add(
+      Padding(
+        child: Container(color: Colors.white,),
+        padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+      ),
+    );
+    return lines;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -221,77 +262,30 @@ class _NewListPageState extends State<NewListPage> {
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      new Text('                    '),
+//                                      new Text('                    '),
                                       new Text(
-                                          "Balance:  ${list_company[index].balance.toString()}",
+                                          "Balance:  ${list_company[index].balance.toString()} \u20AC",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                          Icon(
-                                            Icons.euro_symbol,
-                                            color: Colors.black,
-                                            size: 30.0,
-                                          ),
+                                              fontWeight: FontWeight.bold,
+                                            fontSize: 15
+                                          )
+                                      ),
+//                                          Icon(
+//                                            Icons.euro_symbol,
+//                                            color: Colors.black,
+//                                            size: 25.0,
+//                                          ),
                                     ]),
                                     new Row(children: <Widget>[
                                       new Text('',
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold)),
                                     ]),
-                                    new Row(children: <Widget>[
-                                      new Text('My special offers:',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ]),
-                                    new Row(children: <Widget>[
-                                      new Text('',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ]),
-                                    new Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.blur_circular,
-                                          color: Colors.blue,
-                                          size: 15.0,
-                                        ),
-                                        new Text('   '),
-                                        new Text(
-                                            list_company[index].offers.length >=
-                                                    1
-                                                ? list_company[index]
-                                                    .offers[0]['name']
-                                                    .toString()
-                                                : ''),
-                                      ],
-                                    ),
-                                    new Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.blur_circular,
-                                          color: Colors.blue,
-                                          size: 15.0,
-                                        ),
-                                        new Text('   '),
-                                        new Text(
-                                            list_company[index].offers.length >=
-                                                    2
-                                                ? list_company[index]
-                                                    .offers[1]['name']
-                                                    .toString()
-                                                : ''),
-                                      ],
-                                    ),
-                                    new Row(
-                                      children: <Widget>[
-                                        new Text(
-                                            list_company[index].offers.length >=
-                                                    3
-                                                ? list_company[index]
-                                                    .offers[2]['name']
-                                                    .toString()
-                                                : ''),
-                                      ],
-                                    ),
+                                    list_company[index].offers.length != 0 ?
+                                    Column(children: <Widget>[
+                                      ..._buildRowList(list_company[index].offers)
+                                    ],) : Text(''),
+                                    list_company[index].has_menu ?
                                     new Row(children: <Widget>[
                                       RaisedButton(
                                           shape: new RoundedRectangleBorder(
@@ -306,9 +300,8 @@ class _NewListPageState extends State<NewListPage> {
                                               builder: (BuildContext context) => new MenuPage(companyName: list_company[index].name),
                                             );
                                             Navigator.of(context).push(route);
-
                                             }),
-                                    ]),
+                                    ]) : Text('')
                                   ],
                                 ),
                               ),
