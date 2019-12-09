@@ -4,7 +4,7 @@ import 'package:fresa/common/functions/getToken.dart';
 import 'package:flutter/material.dart';
 import 'package:fresa/models/company.dart';
 import 'package:fresa/pages/code_registration.dart';
-import 'package:fresa/pages/list_page.dart';
+import 'package:fresa/pages/list_offers.dart';
 import 'package:http/http.dart' as http;
 import 'package:fresa/common/functions/saveCurrentLogin.dart';
 import 'package:fresa/common/functions/showDialogSingleButton.dart';
@@ -78,10 +78,10 @@ requestPasswordSet(
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  NewListPage(token_t: responseJson['token'])),
+                  Offer(token_t: responseJson['token'])),
               (Route<dynamic> route) => false,
         );
-        Navigator.of(context).pushReplacementNamed('/list_new');
+        Navigator.of(context).pushReplacementNamed('/list_offers');
       }
     }
   } else {
@@ -109,7 +109,7 @@ requestLogIn(BuildContext context, String phone, String password,) async {
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    NewListPage(token_t: responseJson['token'])),
+                    Offer(token_t: responseJson['token'])),
             (Route<dynamic> route) => false,
           );
   }else{

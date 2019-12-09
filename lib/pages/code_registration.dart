@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:fresa/common/apifunctions/requestLoginApi.dart';
 import 'package:flutter/services.dart';
 
+
 class CodeRegistrationPage extends StatefulWidget {
   String phone;
   String status;
@@ -226,75 +227,13 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                   color: Colors.redAccent,
                                 ),
                               )
-//                      RaisedButton(
-//                        child: Text("Зарегистрироваться",
-//                            style: TextStyle(color: Colors.white,
-//                                fontSize: 18.0)
-//                        ),
-//                        color: Colors.blue,
-//                        onPressed: () {
-//                          if (_formKey.currentState.validate()) {
-//                            _formKey.currentState.save();
-//                            print('OK!!!!!!!');
-//                            SystemChannels.textInput.invokeMethod('TextInput.hide');
-//
-//                          }
-//                        },
-//                      )
                             ],
                           ),
                         ),
                       ),
-//                      TextField(
-//                        obscureText: true,
-//                        controller: _passwordController,
-//                        cursorColor: Colors.redAccent,
-//                        decoration: InputDecoration(
-//                          border: OutlineInputBorder(
-//                              borderRadius: new BorderRadius.circular(0.0)),
-//                          focusColor: Colors.redAccent,
-//                          labelText: 'Enter your password',
-//                        ),
-//                      ),
-//                      Padding(
-//                        padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-//                      ),
-//                      Container(
-//                        height: 45.0,
-//                        width: double.infinity,
-//                        margin: const EdgeInsets.only(bottom: 1.0),
-//                        child: RaisedButton(
-//                          onPressed: () {
-//                            requestLoginAPI(
-//                                context, widget.phone, code, password,
-//                                password2: password2);
-//                          },
-//                          child: Text("GO",
-//                              style: TextStyle(
-//                                  color: Colors.white, fontSize: 18.0)),
-//                          color: Colors.redAccent,
-//                        ),
-//                      )
                     ],
                   )
-
-            //              Container(
-//                height: 45.0,
-//                width: double.infinity,
-//                child: RaisedButton(
-//                  onPressed: () {
-//                    print(
-//                        '${_phoneNumberController.text}, ${_codeController.text}');
-//                    SystemChannels.textInput.invokeMethod('TextInput.hide');
-//                    requestLoginAPI(
-//                        context, widget.phone, _codeController.text, '');
-//
-//                  },
-//                  child: Text("GO",
-//                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
-//                  color: Colors.redAccent,
-//                ),
-//              )),
-            ));
+            )
+    );
   }
 }
