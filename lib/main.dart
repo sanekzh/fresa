@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:fresa/pages/main_page.dart';
+import 'package:fresa/pages/login_phone_page.dart';
 import 'package:fresa/pages/code_registration.dart';
 import 'package:fresa/pages/list_offers.dart';
 import 'package:fresa/pages/menu.dart';
@@ -19,7 +19,7 @@ void main() => runApp(MaterialApp(
   theme: buildTheme(),
   initialRoute: '/',
   routes: {
-    '/': (context) => MainHome(),
+    '/': (context) => LoginPhone(),
     '/code_registration' : (context) => CodeRegistrationPage(),
     '/list_offers': (context) => Offer(),
     '/menu': (context) => Menu(),

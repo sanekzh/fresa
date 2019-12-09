@@ -1,6 +1,6 @@
 import 'package:fresa/bloc/offers_model.dart';
 import 'package:fresa/models/company.dart';
-import 'package:fresa/pages/main_page.dart';
+import 'package:fresa/pages/login_phone_page.dart';
 import 'package:fresa/pages/menu.dart';
 import 'package:fresa/common/functions/saveLogout.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +103,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                       saveLogout();
                       Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context) => MainHome()),
+                        MaterialPageRoute(builder: (context) => LoginPhone()),
                         (Route<dynamic> route) => false,
                       );
                       model.setUserName = '';

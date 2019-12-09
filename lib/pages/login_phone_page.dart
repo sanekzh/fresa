@@ -6,30 +6,30 @@ import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 
-class MainHome extends StatelessWidget {
+class LoginPhone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return ScopedModel<MainModel>(
       model: mainModel,
       child: ScopedModelDescendant<MainModel>(builder: (context, child, model) {
-        return MainPage(model: model);
+        return LoginPhonePage(model: model);
       }),
     );
   }
 }
 
 
-class MainPage extends StatefulWidget {
+class LoginPhonePage extends StatefulWidget {
   final MainModel model;
 
-  MainPage({Key key, this.model }) : super(key: key);
+  LoginPhonePage({Key key, this.model }) : super(key: key);
 
   @override
-  _MainPageState createState() => _MainPageState();
+  _LoginPhonePageState createState() => _LoginPhonePageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _LoginPhonePageState extends State<LoginPhonePage> {
 
   @override
   void initState() {
