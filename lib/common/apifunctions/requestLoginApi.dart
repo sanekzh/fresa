@@ -93,10 +93,11 @@ requestPasswordSet(
   }
 }
 
-requestLogIn(BuildContext context, String phone, String password,) async {
+requestLogIn(BuildContext context, String phone, String code,) async {
   final url_authorize = "http://api.mermelando.es/api/customer/authorize/";
-  final body_authorize = {"phone": phone, "password": password};
+  final body_authorize = {"phone": phone, "code": code};
   print("sxcfsdfc");
+  print('$code');
   final response = await http.post(
     url_authorize,
     body: body_authorize,
