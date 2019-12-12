@@ -42,6 +42,8 @@ dev_dependencies:
   flutter_launcher_icons: "^0.7.3"
   grouped_list: ^1.2.1
   scoped_model: ^1.0.1
+  flutter_svg: ^0.14.3
+
 
 
 
@@ -50,10 +52,45 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - res/images/logo_m.svg
+    - res/images/logo_m.png
+    - res/images/phone_24px_rounded.svg
 
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
+  fonts:
+    - family: Gilroy
+      fonts:
+        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
+          weight: 400
+        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
+          weight: 700
+        - asset: res/fonts/gilroy/Gilroy-Black.ttf
+          weight: 400
+        - asset: res/fonts/gilroy/Gilroy-BlackItalic.ttf
+        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
+        - asset: res/fonts/gilroy/Gilroy-BoldItalic.ttf
+          weight: 800
+        - asset: res/fonts/gilroy/Gilroy-ExtraBold.ttf
+          weight: 800
+        - asset: res/fonts/gilroy/Gilroy-ExtraBoldItalic.ttf
+          weight: 800
+        - asset: res/fonts/gilroy/Gilroy-Heavy.ttf
+        - asset: res/fonts/gilroy/Gilroy-HeavyItalic.ttf
+        - asset: res/fonts/gilroy/Gilroy-Light.ttf
+        - asset: res/fonts/gilroy/Gilroy-LightItalic.ttf
+        - asset: res/fonts/gilroy/Gilroy-Medium.ttf
+        - asset: res/fonts/gilroy/Gilroy-MediumItalic.ttf
+        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
+        - asset: res/fonts/gilroy/Gilroy-RegularItalic.ttf
+        - asset: res/fonts/gilroy/Gilroy-SemiBold.ttf
+        - asset: res/fonts/gilroy/Gilroy-SemiBoldItalic.ttf
+        - asset: res/fonts/gilroy/Gilroy-Thin.ttf
+        - asset: res/fonts/gilroy/Gilroy-ThinItalic.ttf
+        - asset: res/fonts/gilroy/Gilroy-UltraLight.ttf
+        - asset: res/fonts/gilroy/Gilroy-UltraLightItalic.ttf
+
+
+
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

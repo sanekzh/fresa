@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:fresa/common/apifunctions/requestLoginApi.dart';
 import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 class LoginPhone extends StatelessWidget {
@@ -41,7 +43,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
   Widget build(BuildContext context) {
     MainModel model = widget.model;
     return new Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(254, 237, 235, 1),
         key: model.scaffoldKey,
         body: model.userName == ''
             ? Container(
@@ -61,60 +63,100 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
               alignment: FractionalOffset.center,
             )
                 : Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+
+                Padding(
+                  padding: EdgeInsets.fromLTRB(90.0, 70.0, 90.0, 10.0),
+                  child:  Center(
+                    child: Image.asset('res/images/logo_m.png',),
+                  ),
+                ),
                 Form(
                   key: model.formKey,
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter phone';
-                              }
-                            },
-                            controller: model.phoneNumberController,
-                            keyboardType: TextInputType.number,
-                            onSaved: (value) => model.setPhone = value,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: "Enter your phone number"
-                            )
+                        Padding(
+                            padding: EdgeInsets.fromLTRB(20.0, 90.0, 20.0, 40.0),
+                            child: TextFormField(
+//                                  validator: (value) {
+//                                    if (value.isEmpty) {
+//                                      return 'Please enter phone';
+//                                    }
+//                                  },
+                                  controller: model.phoneNumberController,
+                                  keyboardType: TextInputType.number,
+                                  onSaved: (value) => model.setPhone = value,
+                                  decoration: InputDecoration(
+                                      prefixIcon: Padding(
+                                        padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
+                                        child:  new IconButton(
+                                          icon: new SvgPicture.asset('res/images/phone_24px_rounded.svg',width: 23.0,height: 23.0,),
+                                          onPressed: null,
+                                        ),
+                                      ),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide(
+                                          width: 0,
+                                          style: BorderStyle.none,
+                                        ),
+                                      ),                                      hintText: 'Telefono',
+                                      hintStyle: TextStyle(fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Gilroy',
+                                        color: Color.fromRGBO(74, 54, 54, 1),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white70
+                                  )
+                              ),
+
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-                        ),
-                        Container(
-                          height: 45.0,
-                          width: double.infinity,
-                          margin: const EdgeInsets.only(bottom: 1.0),
-                          child: RaisedButton(
-                            onPressed: () {
-                              if (model.formKey.currentState.validate()) {
-                                model.formKey.currentState.save();
-                                model.setIsLoading = true;
-                                SystemChannels.textInput
-                                    .invokeMethod('TextInput.hide');
-                                requestCheckPhone(
-                                    context, model.phoneNumberController.text);
-                                model.setIsLoading = false;
-                              }
-                            },
-                            child: Text("GO",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18.0
-                                )
+                          padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                          child: Container(
+                            height: 55.0,
+                            width: double.infinity,
+                            margin: const EdgeInsets.only(bottom: 1.0),
+                            child: RaisedButton(
+                              onPressed: () {
+                                if (model.formKey.currentState.validate()) {
+                                  model.formKey.currentState.save();
+                                  model.setIsLoading = true;
+                                  SystemChannels.textInput
+                                      .invokeMethod('TextInput.hide');
+                                  requestCheckPhone(
+                                      context, model.phoneNumberController.text);
+                                  model.setIsLoading = false;
+                                }
+                              },
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(12.0),
+//                                  side: BorderSide(color: Colors.red)
+                              ),
+                              child: Text("SIGUIENTE PASO",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                      fontStyle: FontStyle.normal,
+                                    fontFamily: 'Gilroy',
+                                      color: Colors.white, height: 1, fontSize: 17.0
+                                  )
+                              ),
+                              color: Color.fromRGBO(195, 48, 48, 1),
                             ),
-                            color: Colors.redAccent,
-                          ),
-                        )
+                          )
+                        ),
+
                       ],
                     ),
                   ),
                 ),
+
+
               ],
             ))
             : Container(
