@@ -86,15 +86,215 @@ class _ListOffersPageState extends State<ListOffersPage> {
     );
     return lines;
   }
+  ListViewFunc(listCompany){
+    return new ListView.builder(
+      shrinkWrap: true,
+      itemCount: listCompany.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
+          child:  Center(
+            child:  new Container(
+              child: new Center(
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+
+                    new Container(
+
+                      decoration: new BoxDecoration(
+                          boxShadow: [
+                            new BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 20.0,
+                              offset: new Offset(0.0, -5.0),
+                            )
+                          ],
+                          color: Colors.white,
+                          borderRadius: index == 0 ? new BorderRadius.only(
+                              topLeft: const Radius.circular(24.0),
+                              topRight: const Radius.circular(24.0)) : new BorderRadius.only(
+                              topLeft: const Radius.circular(0.0),
+                              topRight: const Radius.circular(0.0))),
+                      padding: new EdgeInsets.all(0.0),
+                      child: new Column(
+                        children: <Widget>[
+                          new ClipRRect(
+                            borderRadius:new BorderRadius.only(
+                                topLeft: const Radius.circular(24.0),
+                                topRight: const Radius.circular(24.0)),
+                            child: Image.asset('res/images/cardImage.png',),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(15, 25, 0, 0),
+                            child: new Text(
+                              listCompany[index].name,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          new Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Container(),
+                                new Text(
+                                  listCompany[index].name,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold),
+                                ),
+//                                      new Text('                    '),
+                                new Text(
+                                    "Balance:  ${listCompany[index].balance.toString()} \u20AC",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15)),
+                              ]),
+                          new Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                new Text('',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                              ]),
+                          listCompany[index].offers.length != 0 ?
+                          Column(children: <Widget>[
+                            ..._buildRowList(listCompany[index].offers)
+                          ],) : Text(''),
+                          new Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                new Card(
+                                    shape: new RoundedRectangleBorder(
+                                        borderRadius: new BorderRadius.circular(5.0)),
+                                    child: new Container(
+                                      color: Color.fromRGBO(254, 237, 235, 1),
+                                      padding: new EdgeInsets.all(20.0),
+                                      child: Row(
+                                        children: <Widget>[
+                                          SvgPicture.asset('res/images/present.svg',width: 23.0,height: 23.0,),
+//                                                    Container(
+//                                                      width: 200,
+//                                                      child:
+//                                                    ),
+                                          Text('Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                )
+                              ]
+                          ),
+                          listCompany[index].has_menu
+                              ? new Row(children: <Widget>[
+                            OutlineButton(
+                                shape:
+                                new RoundedRectangleBorder(
+                                    borderRadius:
+                                    new BorderRadius
+                                        .circular(5.0)),
+                                child: Text("La carta",
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(191, 40, 73, 1),
+                                        fontSize: 10.0)),
+                                color: Colors.redAccent,
+                                onPressed: () {
+                                  var route =
+                                  new MaterialPageRoute(
+                                    builder: (BuildContext
+                                    context) =>
+                                    new Menu(
+                                        companyName:
+                                        listCompany[
+                                        index]
+                                            .name),
+                                  );
+                                  Navigator.of(context)
+                                      .push(route);
+                                }),
+                            OutlineButton(
+                                shape:
+                                new RoundedRectangleBorder(
+                                    borderRadius:
+                                    new BorderRadius
+                                        .circular(5.0)),
+                                child: Text("whastsapp",
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(191, 40, 73, 1),
+                                        fontSize: 10.0)),
+                                color: Colors.redAccent,
+                                onPressed: () {
+                                  var route =
+                                  new MaterialPageRoute(
+                                    builder: (BuildContext
+                                    context) =>
+                                    new Menu(
+                                        companyName:
+                                        listCompany[
+                                        index]
+                                            .name),
+                                  );
+                                  Navigator.of(context)
+                                      .push(route);
+                                }),
+                            OutlineButton(
+                                shape:
+                                new RoundedRectangleBorder(
+                                    borderRadius:
+                                    new BorderRadius
+                                        .circular(5.0)),
+                                child: Text("Google maps",
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(191, 40, 73, 1),
+                                        fontSize: 10.0)),
+                                color: Colors.redAccent,
+                                onPressed: () {
+                                  var route =
+                                  new MaterialPageRoute(
+                                    builder: (BuildContext
+                                    context) =>
+                                    new Menu(
+                                        companyName:
+                                        listCompany[
+                                        index]
+                                            .name),
+                                  );
+                                  Navigator.of(context)
+                                      .push(route);
+                                }),
+                          ])
+                              : Text('')
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     OfferModel model = widget.model;
     return new Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(254, 237, 235, 1),
         appBar: new AppBar(
-          backgroundColor: Colors.redAccent,
-          title: new Text(model.userName != '' ? '${model.userName}' : ''),
+          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
+          elevation: 0,
+          title: new Text('Mis oportunidades', style: TextStyle(
+            color: Color.fromRGBO(87, 86, 86, 1),
+          ),),
           actions: <Widget>[
             model.userName == ''
                 ? Text('')
@@ -118,168 +318,10 @@ class _ListOffersPageState extends State<ListOffersPage> {
             builder: (_, AsyncSnapshot<List<Company>> snapshot) {
               var listCompany = snapshot.data;
               if (snapshot.hasData) {
-                return Container(
-                    child: new ListView.builder(
-                  itemCount: listCompany.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return new Container(
-                      child: new Center(
-                        child: new Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            new Card(
-                              elevation: 10,
-                              shape: new RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(5.0)),
-                              child: new Container(
-                                padding: new EdgeInsets.all(20.0),
-                                child: new Column(
-                                  children: <Widget>[
-                                    new Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          new Text(
-                                            listCompany[index].name,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-//                                      new Text('                    '),
-                                          new Text(
-                                              "Balance:  ${listCompany[index].balance.toString()} \u20AC",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 15)),
-                                        ]),
-                                    new Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                      new Text('',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ]),
-                                    listCompany[index].offers.length != 0 ?
-                                    Column(children: <Widget>[
-                                      ..._buildRowList(listCompany[index].offers)
-                                    ],) : Text(''),
-                                    new Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          new Card(
-                                              shape: new RoundedRectangleBorder(
-                                                  borderRadius: new BorderRadius.circular(5.0)),
-                                              child: new Container(
-                                                color: Color.fromRGBO(254, 237, 235, 1),
-                                                padding: new EdgeInsets.all(20.0),
-                                                child: Row(
-                                                  children: <Widget>[
-                                                    SvgPicture.asset('res/images/present.svg',width: 23.0,height: 23.0,),
-//                                                    Container(
-//                                                      width: 200,
-//                                                      child:
-//                                                    ),
-                                                    Text('Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'
-                                                    ),
-                                                  ],
-                                                ),
-                                              )
-                                          )
-                                        ]
-                                    ),
-                                    listCompany[index].has_menu
-                                        ? new Row(children: <Widget>[
-                                      OutlineButton(
-                                                shape:
-                                                    new RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            new BorderRadius
-                                                                .circular(5.0)),
-                                                child: Text("La carta",
-                                                    style: TextStyle(
-                                                        color: Color.fromRGBO(191, 40, 73, 1),
-                                                        fontSize: 10.0)),
-                                                color: Colors.redAccent,
-                                                onPressed: () {
-                                                  var route =
-                                                      new MaterialPageRoute(
-                                                    builder: (BuildContext
-                                                            context) =>
-                                                        new Menu(
-                                                            companyName:
-                                                                listCompany[
-                                                                        index]
-                                                                    .name),
-                                                  );
-                                                  Navigator.of(context)
-                                                      .push(route);
-                                                }),
-                                      OutlineButton(
-                                          shape:
-                                          new RoundedRectangleBorder(
-                                              borderRadius:
-                                              new BorderRadius
-                                                  .circular(5.0)),
-                                          child: Text("whastsapp",
-                                              style: TextStyle(
-                                                  color: Color.fromRGBO(191, 40, 73, 1),
-                                                  fontSize: 10.0)),
-                                          color: Colors.redAccent,
-                                          onPressed: () {
-                                            var route =
-                                            new MaterialPageRoute(
-                                              builder: (BuildContext
-                                              context) =>
-                                              new Menu(
-                                                  companyName:
-                                                  listCompany[
-                                                  index]
-                                                      .name),
-                                            );
-                                            Navigator.of(context)
-                                                .push(route);
-                                          }),
-                                      OutlineButton(
-                                          shape:
-                                          new RoundedRectangleBorder(
-                                              borderRadius:
-                                              new BorderRadius
-                                                  .circular(5.0)),
-                                          child: Text("Google maps",
-                                              style: TextStyle(
-                                                  color: Color.fromRGBO(191, 40, 73, 1),
-                                                  fontSize: 10.0)),
-                                          color: Colors.redAccent,
-                                          onPressed: () {
-                                            var route =
-                                            new MaterialPageRoute(
-                                              builder: (BuildContext
-                                              context) =>
-                                              new Menu(
-                                                  companyName:
-                                                  listCompany[
-                                                  index]
-                                                      .name),
-                                            );
-                                            Navigator.of(context)
-                                                .push(route);
-                                          }),
-                                          ])
-                                        : Text('')
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ));
+                return Stack(
+                    children: <Widget>[
+                      ListViewFunc(listCompany)
+                    ]);
               } else {
                 return Center(
                   child: CircularProgressIndicator(),
