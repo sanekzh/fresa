@@ -39,12 +39,12 @@ dependencies:
   grouped_list: ^1.2.1
   scoped_model: ^1.0.1
   flutter_svg: ^0.14.3
-  pin_code_text_field: ^1.2.1
+  pin_code_text_field: ^1.5.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  pin_code_text_field: ^1.5.0
 
 
 
@@ -56,7 +56,9 @@ flutter:
   assets:
     - res/images/logo_m.svg
     - res/images/logo_m.png
+    - res/images/cardImage.png
     - res/images/phone_24px_rounded.svg
+    - res/images/present.svg
 
   fonts:
     - family: Gilroy
