@@ -44,7 +44,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pin_code_text_field: ^1.5.0
 
 
 
@@ -66,7 +65,7 @@ flutter:
 #        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
 #          style: normal
 #          weight: 400
-#        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
+        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
 #          weight: 700
 #        - asset: res/fonts/gilroy/Gilroy-Black.ttf
 #          weight: 400

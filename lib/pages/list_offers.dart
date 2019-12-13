@@ -179,10 +179,10 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                 child: Row(
                                                   children: <Widget>[
                                                     SvgPicture.asset('res/images/present.svg',width: 23.0,height: 23.0,),
-                                                    Container(
-                                                      width: 200,
-                                                      child:
-                                                    ),
+//                                                    Container(
+//                                                      width: 200,
+//                                                      child:
+//                                                    ),
                                                     Text('Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'
                                                     ),
                                                   ],
