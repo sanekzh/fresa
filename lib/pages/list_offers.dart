@@ -125,15 +125,16 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                 topRight: const Radius.circular(24.0)),
                             child: Image.asset('res/images/cardImage.png',),
                           ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(15, 25, 0, 0),
-                            child: new Text(
-                              listCompany[index].name,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
+//                          Container(
+//                            margin: EdgeInsets.fromLTRB(15, 25, 0, 0),
+//                            child: new Text(
+//                              listCompany[index].name,
+//                              style: TextStyle(
+//                                  fontWeight: FontWeight.bold),
+//                            ),
+//                          ),
                           new Row(
+
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment:
                               MainAxisAlignment.spaceBetween,
@@ -145,11 +146,43 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                       fontWeight: FontWeight.bold),
                                 ),
 //                                      new Text('                    '),
-                                new Text(
-                                    "Balance:  ${listCompany[index].balance.toString()} \u20AC",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15)),
+//                              Stack(
+//                                children: <Widget>[
+//                                  Positioned(
+//                                    top: -5,
+//                                    right: 5,
+//                                    child: Container(
+//                                      width: 10,
+//                                      height: 10,
+//                                      color: Colors.black,
+//                                    ),
+//                                  )
+//                                ],
+//                              ),
+                              Container(
+                                width: 72,
+                                height: 36,
+                                color: Color.fromRGBO(195, 48, 48, 1),
+                                
+
+                                child: Column(
+                                  children: <Widget>[
+                                    new Text(
+                                        "Saldo:",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                            fontSize: 15)),
+                                    new Text(
+                                        "${listCompany[index].balance.toString()} \u20AC",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                            fontSize: 15)),
+                                  ],
+                                ),
+                              ),
+
                               ]),
                           new Row(
                               mainAxisSize: MainAxisSize.max,
@@ -167,38 +200,105 @@ class _ListOffersPageState extends State<ListOffersPage> {
                           new Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              MainAxisAlignment.center,
                               children: <Widget>[
                                 new Card(
+                                    color: Color.fromRGBO(254, 237, 235, 1),
                                     shape: new RoundedRectangleBorder(
-                                        borderRadius: new BorderRadius.circular(5.0)),
+                                        borderRadius: new BorderRadius.circular(16.0)),
                                     child: new Container(
-                                      color: Color.fromRGBO(254, 237, 235, 1),
+
+
                                       padding: new EdgeInsets.all(20.0),
                                       child: Row(
+
+                                      mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          SvgPicture.asset('res/images/present.svg',width: 23.0,height: 23.0,),
-//                                                    Container(
-//                                                      width: 200,
-//                                                      child:
-//                                                    ),
-                                          Text('Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'
+                                          Container(
+
+                                            width: 80,
+                                            child:SvgPicture.asset('res/images/present.svg',
+                                              width: 36.0,
+                                              height: 36.0,),
                                           ),
+
+//
+                                        Container(
+                                          width: 212,
+                                          child: Text('Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'
+                                          ),
+                                        ),
+
                                         ],
                                       ),
                                     )
-                                )
+                                ),
+
                               ]
                           ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 11.0, 0.0, 0.0),
+                          ),
+                          new Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.center,
+                              children: <Widget>[
+                                new Card(
+                                    color: Color.fromRGBO(254, 237, 235, 1),
+                                    shape: new RoundedRectangleBorder(
+                                        borderRadius: new BorderRadius.circular(16.0)),
+                                    child: new Container(
+
+
+                                      padding: new EdgeInsets.all(20.0),
+                                      child: Row(
+
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Container(
+
+                                            width: 80,
+                                            child:SvgPicture.asset('res/images/present.svg',
+                                              width: 36.0,
+                                              height: 36.0,),
+                                          ),
+
+//
+                                          Container(
+                                            width: 212,
+                                            child: Text('Dos pizzas por el precio de una. Todos los jueves durante todo el día.'
+                                            ),
+                                          ),
+
+                                        ],
+                                      ),
+                                    )
+                                ),
+
+                              ]
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 21.0),
+                          ),
                           listCompany[index].has_menu
-                              ? new Row(children: <Widget>[
+                              ? new Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.center,
+
+                              children: <Widget>[
                             OutlineButton(
                                 shape:
                                 new RoundedRectangleBorder(
                                     borderRadius:
                                     new BorderRadius
                                         .circular(5.0)),
-                                child: Text("La carta",
+                                child: Text("LA CARTA",
                                     style: TextStyle(
                                         color: Color.fromRGBO(191, 40, 73, 1),
                                         fontSize: 10.0)),
@@ -217,14 +317,18 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                   Navigator.of(context)
                                       .push(route);
                                 }),
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(25.0, 0.0, 0.0, 0.0),
+                                ),
                             OutlineButton(
                                 shape:
                                 new RoundedRectangleBorder(
                                     borderRadius:
                                     new BorderRadius
                                         .circular(5.0)),
-                                child: Text("whastsapp",
+                                child: Text("WHATSAPP",
                                     style: TextStyle(
+
                                         color: Color.fromRGBO(191, 40, 73, 1),
                                         fontSize: 10.0)),
                                 color: Colors.redAccent,
@@ -242,15 +346,19 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                   Navigator.of(context)
                                       .push(route);
                                 }),
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(0.0, 0.0, 25.0, 0.0),
+                                ),
                             OutlineButton(
                                 shape:
                                 new RoundedRectangleBorder(
                                     borderRadius:
                                     new BorderRadius
                                         .circular(5.0)),
-                                child: Text("Google maps",
+                                child: Text("GOOGLE MAPS",
                                     style: TextStyle(
                                         color: Color.fromRGBO(191, 40, 73, 1),
+                                        fontWeight: FontWeight.w800,
                                         fontSize: 10.0)),
                                 color: Colors.redAccent,
                                 onPressed: () {
