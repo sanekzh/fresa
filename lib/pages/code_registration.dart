@@ -73,7 +73,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                             padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(35.0, 0.0, 35.0, 30.0),
+                            padding: EdgeInsets.fromLTRB(55.0, 0.0, 55.0, 30.0),
                             child: PinCodeTextField(
                               autofocus: false,
                               controller: _codeController,

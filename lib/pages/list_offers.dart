@@ -118,8 +118,10 @@ class _ListOffersPageState extends State<ListOffersPage> {
                               topRight: const Radius.circular(0.0))),
                       padding: new EdgeInsets.all(0.0),
                       child: new Column(
+
                         children: <Widget>[
                           new ClipRRect(
+
                             borderRadius:new BorderRadius.only(
                                 topLeft: const Radius.circular(24.0),
                                 topRight: const Radius.circular(24.0)),
