@@ -8,11 +8,17 @@ import 'package:http/http.dart' show Client;
 class CompanyApiProvider {
   Client client = Client();
 
-  Future<List<Company>> fetchCompanyData() async {
+  Future<List<Company>> fetchCompanyData(token_t) async {
     var token;
-    await getToken().then((result) {
-      token = result;
-    });
+
+    if(token_t != null){
+      token = token_t;
+    } else {
+      await getToken().then((result) {
+        token = result;
+      });
+    }
+    print("TOKEN FOR COMPANY ${token}");
     String url = "http://api.mermelando.es/api/customer/companies/list/";
     Map<String, String> headerToken = {
       "Content-type": "application/json",

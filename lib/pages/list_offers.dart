@@ -39,7 +39,8 @@ class _ListOffersPageState extends State<ListOffersPage> {
   @override
   void initState() {
     super.initState();
-    widget.model.initFunc(context);
+    print('INIT OFFER ');
+    widget.model.initFunc(context, widget.token_t);
   }
 
   List<Widget> _buildRowList(offers) {

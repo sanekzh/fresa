@@ -80,7 +80,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                     child: Column(
                       children: <Widget>[
                         Padding(
-                            padding: EdgeInsets.fromLTRB(20.0, 90.0, 20.0, 40.0),
+                            padding: EdgeInsets.fromLTRB(10.0, 90.0, 10.0, 40.0),
                             child: TextFormField(
 //                                  validator: (value) {
 //                                    if (value.isEmpty) {
@@ -106,8 +106,8 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                         ),
                                       ),                                      hintText: 'Telefono',
                                       hintStyle: TextStyle(fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Gilroy',
+                                        fontWeight: FontWeight.w800,
+//                                        fontFamily: 'Gilroy',
                                         color: Color.fromRGBO(74, 54, 54, 1),
                                       ),
                                       filled: true,
@@ -117,9 +117,9 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
 
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                          padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                           child: Container(
-                            height: 55.0,
+                            height: 64.0,
                             width: double.infinity,
                             margin: const EdgeInsets.only(bottom: 1.0),
                             child: RaisedButton(
@@ -140,10 +140,10 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                               ),
                               child: Text("SIGUIENTE PASO",
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w900,
                                       fontStyle: FontStyle.normal,
-                                    fontFamily: 'Gilroy',
-                                      color: Colors.white, height: 1, fontSize: 17.0
+//                                    fontFamily: 'Gilroy',
+                                      color: Colors.white, height: 1, fontSize: 18.0
                                   )
                               ),
                               color: Color.fromRGBO(195, 48, 48, 1),

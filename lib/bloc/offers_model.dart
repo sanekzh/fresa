@@ -37,8 +37,9 @@ class OfferModel extends Model {
 
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
-  void initFunc(context) {
-    setListCompany = _repository.fetchCompany();
+  void initFunc(context, token_t) {
+    print(token_t);
+    setListCompany = _repository.fetchCompany(token_t);
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         print('on message $message');

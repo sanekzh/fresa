@@ -39,12 +39,12 @@ dependencies:
   grouped_list: ^1.2.1
   scoped_model: ^1.0.1
   flutter_svg: ^0.14.3
-  pin_code_text_field: ^1.5.0
+  pin_code_text_field: ^1.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pin_code_text_field: ^1.5.0
+
 
 
 
@@ -61,34 +61,37 @@ flutter:
   fonts:
     - family: Gilroy
       fonts:
-        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
-          weight: 400
-        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
-          weight: 700
-        - asset: res/fonts/gilroy/Gilroy-Black.ttf
-          weight: 400
-        - asset: res/fonts/gilroy/Gilroy-BlackItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
-        - asset: res/fonts/gilroy/Gilroy-BoldItalic.ttf
-          weight: 800
-        - asset: res/fonts/gilroy/Gilroy-ExtraBold.ttf
-          weight: 800
-        - asset: res/fonts/gilroy/Gilroy-ExtraBoldItalic.ttf
-          weight: 800
-        - asset: res/fonts/gilroy/Gilroy-Heavy.ttf
-        - asset: res/fonts/gilroy/Gilroy-HeavyItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Light.ttf
-        - asset: res/fonts/gilroy/Gilroy-LightItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Medium.ttf
-        - asset: res/fonts/gilroy/Gilroy-MediumItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
-        - asset: res/fonts/gilroy/Gilroy-RegularItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-SemiBold.ttf
-        - asset: res/fonts/gilroy/Gilroy-SemiBoldItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Thin.ttf
-        - asset: res/fonts/gilroy/Gilroy-ThinItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-UltraLight.ttf
-        - asset: res/fonts/gilroy/Gilroy-UltraLightItalic.ttf
+#        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
+#          style: normal
+#          weight: 400
+#        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
+#          weight: 700
+#        - asset: res/fonts/gilroy/Gilroy-Black.ttf
+#          weight: 400
+#        - asset: res/fonts/gilroy/Gilroy-BlackItalic.ttf
+#          weight: 400
+#        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
+#          weight: 800
+#        - asset: res/fonts/gilroy/Gilroy-BoldItalic.ttf
+#          weight: 800
+#        - asset: res/fonts/gilroy/Gilroy-ExtraBold.ttf
+#          weight: 800
+#        - asset: res/fonts/gilroy/Gilroy-ExtraBoldItalic.ttf
+#          weight: 800
+#        - asset: res/fonts/gilroy/Gilroy-Heavy.ttf
+#        - asset: res/fonts/gilroy/Gilroy-HeavyItalic.ttf
+#        - asset: res/fonts/gilroy/Gilroy-Light.ttf
+#        - asset: res/fonts/gilroy/Gilroy-LightItalic.ttf
+#        - asset: res/fonts/gilroy/Gilroy-Medium.ttf
+#        - asset: res/fonts/gilroy/Gilroy-MediumItalic.ttf
+#        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
+#        - asset: res/fonts/gilroy/Gilroy-RegularItalic.ttf
+#        - asset: res/fonts/gilroy/Gilroy-SemiBold.ttf
+#        - asset: res/fonts/gilroy/Gilroy-SemiBoldItalic.ttf
+#        - asset: res/fonts/gilroy/G/ilroy-Thin.ttf
+#        - asset: res/fonts/gilroy/Gilroy-ThinItalic.ttf
+#        - asset: res/fonts/gilroy/Gilroy-UltraLight.ttf
+#        - asset: res/fonts/gilroy/Gilroy-UltraLightItalic.ttf
 
 
 

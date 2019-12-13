@@ -13,8 +13,8 @@ class Repository {
   }
 
   final companyApiProvider = CompanyApiProvider();
-  Future<List<Company>> fetchCompany() async {
-    return companyApiProvider.fetchCompanyData();
+  Future<List<Company>> fetchCompany(toket_t) async {
+    return companyApiProvider.fetchCompanyData(toket_t);
   }
 
   final menuApiProvider = MenuApiProvider();
