@@ -163,7 +163,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                 width: 72,
                                 height: 36,
                                 color: Color.fromRGBO(195, 48, 48, 1),
-                                
+
 
                                 child: Column(
                                   children: <Widget>[
