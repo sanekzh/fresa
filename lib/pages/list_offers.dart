@@ -1,3 +1,4 @@
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fresa/bloc/offers_model.dart';
 import 'package:fresa/models/company.dart';
 import 'package:fresa/pages/login_phone_page.dart';
@@ -150,7 +151,11 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 15)),
                                         ]),
-                                    new Row(children: <Widget>[
+                                    new Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
                                       new Text('',
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold)),
@@ -159,18 +164,44 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     Column(children: <Widget>[
                                       ..._buildRowList(listCompany[index].offers)
                                     ],) : Text(''),
+                                    new Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          new Card(
+                                              shape: new RoundedRectangleBorder(
+                                                  borderRadius: new BorderRadius.circular(5.0)),
+                                              child: new Container(
+                                                color: Color.fromRGBO(254, 237, 235, 1),
+                                                padding: new EdgeInsets.all(20.0),
+                                                child: Row(
+                                                  children: <Widget>[
+                                                    SvgPicture.asset('res/images/present.svg',width: 23.0,height: 23.0,),
+                                                    Container(
+                                                      width: 200,
+                                                      child:
+                                                    ),
+                                                    Text('Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
+                                          )
+                                        ]
+                                    ),
                                     listCompany[index].has_menu
                                         ? new Row(children: <Widget>[
-                                            RaisedButton(
+                                      OutlineButton(
                                                 shape:
                                                     new RoundedRectangleBorder(
                                                         borderRadius:
                                                             new BorderRadius
                                                                 .circular(5.0)),
-                                                child: Text("Menu",
+                                                child: Text("La carta",
                                                     style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 18.0)),
+                                                        color: Color.fromRGBO(191, 40, 73, 1),
+                                                        fontSize: 10.0)),
                                                 color: Colors.redAccent,
                                                 onPressed: () {
                                                   var route =
@@ -186,6 +217,56 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                   Navigator.of(context)
                                                       .push(route);
                                                 }),
+                                      OutlineButton(
+                                          shape:
+                                          new RoundedRectangleBorder(
+                                              borderRadius:
+                                              new BorderRadius
+                                                  .circular(5.0)),
+                                          child: Text("whastsapp",
+                                              style: TextStyle(
+                                                  color: Color.fromRGBO(191, 40, 73, 1),
+                                                  fontSize: 10.0)),
+                                          color: Colors.redAccent,
+                                          onPressed: () {
+                                            var route =
+                                            new MaterialPageRoute(
+                                              builder: (BuildContext
+                                              context) =>
+                                              new Menu(
+                                                  companyName:
+                                                  listCompany[
+                                                  index]
+                                                      .name),
+                                            );
+                                            Navigator.of(context)
+                                                .push(route);
+                                          }),
+                                      OutlineButton(
+                                          shape:
+                                          new RoundedRectangleBorder(
+                                              borderRadius:
+                                              new BorderRadius
+                                                  .circular(5.0)),
+                                          child: Text("Google maps",
+                                              style: TextStyle(
+                                                  color: Color.fromRGBO(191, 40, 73, 1),
+                                                  fontSize: 10.0)),
+                                          color: Colors.redAccent,
+                                          onPressed: () {
+                                            var route =
+                                            new MaterialPageRoute(
+                                              builder: (BuildContext
+                                              context) =>
+                                              new Menu(
+                                                  companyName:
+                                                  listCompany[
+                                                  index]
+                                                      .name),
+                                            );
+                                            Navigator.of(context)
+                                                .push(route);
+                                          }),
                                           ])
                                         : Text('')
                                   ],

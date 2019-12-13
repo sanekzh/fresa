@@ -46,13 +46,16 @@ class _MenuPageState extends State<MenuPage> {
 
   item(element) {
     return RawMaterialButton(
+      padding: EdgeInsets.fromLTRB(43.0, 0.0, 35.0, 0.0),
       child: new Container(
+        color: Color.fromRGBO(254, 237, 235, 1),
         child: new SizedBox(
           height: 100.0,
           child: new Card(
-            elevation: 10,
+            elevation: 0,
             child: new Container(
               padding: new EdgeInsets.all(10.0),
+              color: Color.fromRGBO(254, 237, 235, 1),
               child: new Column(
                 children: <Widget>[
                   new Row(
@@ -63,10 +66,32 @@ class _MenuPageState extends State<MenuPage> {
                         Container(
                           child: Text('${element.price.toString()} \u20AC',
                               style: TextStyle(
-                                  fontSize: 20.0,
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold)),
+                                  fontSize: 12.0,
+                                  fontFamily: 'Gilroy',
+                                  color: Color.fromRGBO(135, 135, 135, 1),
+                                  fontWeight: FontWeight.w900,
+                                  fontStyle: FontStyle.normal,
+                                  height: 1.2)),
                         )
+
+                      ]),
+                  new Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+
+                        Container(
+                          width: 290,
+                          child: Text('fdfgdfgdfgdfg dfg dg dfg g df dfg dfgdf dfgfdg gfdgdfgdf gfdgdfgdf',
+                              style: TextStyle(
+                                  fontSize: 12.0,
+                                  fontFamily: 'Gilroy',
+                                  color: Color.fromRGBO(135, 135, 135, 1),
+                                  fontWeight: FontWeight.w900,
+                                  fontStyle: FontStyle.normal,
+                                  height: 1.2)),
+                        )
+
                       ]),
                 ],
               ),
@@ -85,9 +110,11 @@ class _MenuPageState extends State<MenuPage> {
     MenuModel model = widget.model;
 
     return new Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(254, 237, 235, 1),
         appBar: new AppBar(
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
+
+          elevation: 0,
           title:
               new Text(widget.companyName != '' ? '${widget.companyName}' : ''),
         ),
@@ -97,6 +124,7 @@ class _MenuPageState extends State<MenuPage> {
               var listMenu = snapshot.data;
               if (snapshot.hasData) {
                 return Container(
+                  color: Color.fromRGBO(254, 237, 235, 1),
                     child: GroupedListView<dynamic, String>(
                   groupBy: (element) {
                     return element.category_name;
@@ -107,17 +135,21 @@ class _MenuPageState extends State<MenuPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: <Widget>[
-                          Icon(
-                            Icons.category,
-                            color: Colors.blue.shade400,
-                          ),
+//                          Icon(
+//                            Icons.category,
+//                            color: Colors.blue.shade400,
+//                          ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsets.fromLTRB(43.0, 0.0, 0.0, 0.0),
                           ),
                           Text(
                             value,
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w400),
+                                fontFamily: 'Gilroy',
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                fontStyle: FontStyle.normal,
+                                height: 1.2),
                           ),
                         ],
                       )),

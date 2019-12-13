@@ -140,7 +140,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                               ),
                               child: Text("SIGUIENTE PASO",
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w900,
                                       fontStyle: FontStyle.normal,
                                     fontFamily: 'Gilroy',
                                       color: Colors.white, height: 1, fontSize: 17.0

@@ -56,39 +56,17 @@ flutter:
   assets:
     - res/images/logo_m.svg
     - res/images/logo_m.png
+    - res/images/cardImage.png
     - res/images/phone_24px_rounded.svg
+    - res/images/present.svg
 
   fonts:
     - family: Gilroy
       fonts:
-        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
-          weight: 400
+#        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
         - asset: res/fonts/gilroy/Gilroy-Bold.ttf
+          style: normal
           weight: 700
-        - asset: res/fonts/gilroy/Gilroy-Black.ttf
-          weight: 400
-        - asset: res/fonts/gilroy/Gilroy-BlackItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Bold.ttf
-        - asset: res/fonts/gilroy/Gilroy-BoldItalic.ttf
-          weight: 800
-        - asset: res/fonts/gilroy/Gilroy-ExtraBold.ttf
-          weight: 800
-        - asset: res/fonts/gilroy/Gilroy-ExtraBoldItalic.ttf
-          weight: 800
-        - asset: res/fonts/gilroy/Gilroy-Heavy.ttf
-        - asset: res/fonts/gilroy/Gilroy-HeavyItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Light.ttf
-        - asset: res/fonts/gilroy/Gilroy-LightItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Medium.ttf
-        - asset: res/fonts/gilroy/Gilroy-MediumItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Regular.ttf
-        - asset: res/fonts/gilroy/Gilroy-RegularItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-SemiBold.ttf
-        - asset: res/fonts/gilroy/Gilroy-SemiBoldItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-Thin.ttf
-        - asset: res/fonts/gilroy/Gilroy-ThinItalic.ttf
-        - asset: res/fonts/gilroy/Gilroy-UltraLight.ttf
-        - asset: res/fonts/gilroy/Gilroy-UltraLightItalic.ttf
 
 
 

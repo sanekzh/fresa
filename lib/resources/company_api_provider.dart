@@ -20,6 +20,7 @@ class CompanyApiProvider {
     };
     final response = await client.get(url, headers: headerToken);
     if (response.statusCode == 200) {
+      print(response);
       List<Company> listCompany = (json.decode(utf8.decode(response.bodyBytes))['results'] as List)
           .map((data) => new Company.fromJson(data))
           .toList();
