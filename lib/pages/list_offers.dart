@@ -155,19 +155,10 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold)),
                                     ]),
-                                    listCompany[index].offers.length != 0
-                                        ? Column(
-                                            children: <Widget>[
-                                              ListView(
-                                                physics: NeverScrollableScrollPhysics(),
-                                                children:
-                                                _buildRowList(
-                                                    listCompany[index].offers)
-                                              ),
-
-                                            ],
-                                          )
-                                        : Text(''),
+                                    listCompany[index].offers.length != 0 ?
+                                    Column(children: <Widget>[
+                                      ..._buildRowList(listCompany[index].offers)
+                                    ],) : Text(''),
                                     listCompany[index].has_menu
                                         ? new Row(children: <Widget>[
                                             RaisedButton(

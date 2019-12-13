@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:fresa/common/apifunctions/requestLoginApi.dart';
 import 'package:flutter/services.dart';
 
+import 'package:fresa/libra/pin_input_text_field.dart';
+
 
 class CodeRegistrationPage extends StatefulWidget {
   String phone;
@@ -22,6 +24,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String code = '', password = '', password2 = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +55,17 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                       padding: EdgeInsets.all(8.0),
                       child: Column(
                         children: <Widget>[
+
+                          PinInputTextField(
+                            pinLength: 4,
+//                            decoration: _pinDecoration,
+//                            controller: _pinEditingController,
+                            autoFocus: true,
+                            textInputAction: TextInputAction.go,
+                            onSubmit: (pin) {
+                              debugPrint('submit pin:$pin');
+                            },
+                          ),
                           TextFormField(
                               validator: (value) {
                                 if (value.isEmpty) {
