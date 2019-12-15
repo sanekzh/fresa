@@ -58,6 +58,7 @@ flutter:
     - res/images/cardImage.png
     - res/images/phone_24px_rounded.svg
     - res/images/present.svg
+    - res/images/card_image.png
 
   fonts:
     - family: Gilroy

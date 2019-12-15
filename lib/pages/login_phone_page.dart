@@ -51,13 +51,13 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
             child: model.isLoading
                 ? Align(
               child: Container(
-                color: Colors.grey[300],
+                color:Color.fromRGBO(254, 237, 235, 1),
                 width: 70.0,
                 height: 70.0,
                 child: new Padding(
                     padding: const EdgeInsets.all(5.0),
                     child:
-                    new Center(child: new CircularProgressIndicator())
+                    new Center(child: Image.asset('res/images/logo_m.png',),)
                 ),
               ),
               alignment: FractionalOffset.center,

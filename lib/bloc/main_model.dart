@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:fresa/resources/repository.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -14,7 +16,7 @@ class MainModel extends Model {
     notifyListeners();
   }
 
-  bool _isLoading = false;
+  bool _isLoading = true;
   get isLoading => _isLoading;
   set setIsLoading(bool load){
     _isLoading = load;
@@ -38,6 +40,13 @@ class MainModel extends Model {
 
 
   void initFunc(context) {
+    loadUserNameData().then((value) {
+      _username = value != null ? value : '';
+      if (_username != '') {
+        Navigator.of(context).pushReplacementNamed('/list_offers');
+      }
+      notifyListeners();
+    });
     _firebaseMessaging.getToken().then((token) {
       print(token);
       _repository.pushToken(token);
@@ -84,13 +93,7 @@ class MainModel extends Model {
 //      },
 //    );
 //    firebaseCloudMessaging_Listeners();
-    loadUserNameData().then((value) {
-      _username = value != null ? value : '';
-      if (_username != '') {
-        Navigator.of(context).pushReplacementNamed('/list_offers');
-      }
-      notifyListeners();
-    });
+
     loadIndiviadualNameData().then((value) {
       notifyListeners();
     });
