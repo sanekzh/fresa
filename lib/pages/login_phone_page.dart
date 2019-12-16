@@ -80,8 +80,10 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                     child: Column(
                       children: <Widget>[
                         Padding(
-                            padding: EdgeInsets.fromLTRB(10.0, 90.0, 10.0, 40.0),
+                            padding: EdgeInsets.fromLTRB(10.0, 80.0, 10.0, 40.0),
+
                             child: TextFormField(
+
 //                                  validator: (value) {
 //                                    if (value.isEmpty) {
 //                                      return 'Please enter phone';
@@ -91,6 +93,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   keyboardType: TextInputType.number,
                                   onSaved: (value) => model.setPhone = value,
                                   decoration: InputDecoration(
+                                      contentPadding: new EdgeInsets.symmetric(vertical: 25.0, horizontal: 10.0),
                                       prefixIcon: Padding(
                                         padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
                                         child:  new IconButton(

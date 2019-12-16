@@ -1,11 +1,14 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fresa/bloc/offers_model.dart';
+import 'package:fresa/common/functions/saveLogout.dart';
 import 'package:fresa/models/company.dart';
 import 'package:fresa/pages/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'dart:io' show Platform;
+
+import 'login_phone_page.dart';
 
 class Offer extends StatelessWidget {
   final String token_t;

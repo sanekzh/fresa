@@ -65,7 +65,7 @@ class _MenuPageState extends State<MenuPage>
   }
 
   item(element) {
-    return RawMaterialButton(
+    return Padding(
       padding: EdgeInsets.fromLTRB(43.0, 0.0, 20.0, 0.0),
       child: new Container(
         color: Color.fromRGBO(254, 237, 235, 1),
@@ -76,6 +76,14 @@ class _MenuPageState extends State<MenuPage>
             child: new Container(
               padding: new EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 0.0),
               color: Color.fromRGBO(254, 237, 235, 1),
+//              decoration: BoxDecoration(
+//color: Color.fromRGBO(254, 237, 235, 1),
+//                border: Border.all(
+//                  width: 10,
+//                    style:
+//                BorderStyle.none)
+//
+//              ),
               child: new Column(
                 children: <Widget>[
                   new Row(
@@ -140,7 +148,7 @@ class _MenuPageState extends State<MenuPage>
           ),
         ),
       ),
-      onPressed: () {},
+
     );
   }
 
@@ -178,6 +186,7 @@ class _MenuPageState extends State<MenuPage>
               return Container(
                   color: Color.fromRGBO(254, 237, 235, 1),
                   child: GroupedListView<dynamic, String>(
+                    separator: Container(height: 0,),
                     groupBy: (element) {
                       return element.category_name;
                     },
