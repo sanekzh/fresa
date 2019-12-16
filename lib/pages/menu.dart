@@ -133,24 +133,31 @@ class _MenuPageState extends State<MenuPage>
                                   height: 1.2)),
                         )
                       ]),
-//                  new Row(
-//                      mainAxisSize: MainAxisSize.max,
-//                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                      children: <Widget>[
-//
-//                        Container(
-//                          width: 290,
-//                          child: Text('fdfgdfgdfgdfg dfg dg dfg g df dfg dfgdf dfgfdg gfdgdfgdf gfdgdfgdf',
-//                              style: TextStyle(
-//                                  fontSize: 12.0,
-//                                  fontFamily: 'Gilroy',
-//                                  color: Color.fromRGBO(135, 135, 135, 1),
-//                                  fontWeight: FontWeight.w900,
-//                                  fontStyle: FontStyle.normal,
-//                                  height: 1.2)),
-//                        )
-//
-//                      ]),
+                  new Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            width: 280,
+                            child: Text(
+                              '${element.description}',
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                fontFamily: 'Gilroy',
+                                color: Color.fromRGBO(135, 135, 135, 1),
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.normal,
+                              ),
+//                              overflow: TextOverflow.ellipsis,
+//                              maxLines: 2,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
+                        ),
+
+                      ]),
                 ],
               ),
             ),

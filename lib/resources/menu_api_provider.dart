@@ -25,6 +25,7 @@ class MenuApiProvider {
   List<CategoryCompany> listCompany = List();
   final response = await client.get(url, headers: headerToken);
   if (response.statusCode == 200) {
+    print(json.decode(utf8.decode(response.bodyBytes))['results']);
     for(var i in json.decode(utf8.decode(response.bodyBytes))['results'] as List){
       list = (i['items'] as List)
           .map((data) => new CategoryCompany.fromJson(data, i))
