@@ -226,8 +226,8 @@ class _MenuPageState extends State<MenuPage>
                                       style: TextStyle(
                                           fontFamily: 'Gilroy',
                                           fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                          fontStyle: FontStyle.normal,
+                                          fontWeight: FontWeight.w800,
+//                                          fontStyle: FontStyle.normal,
                                           height: 1.2),
                                     ),
                                   ],
@@ -248,9 +248,9 @@ class _MenuPageState extends State<MenuPage>
                                   value,
                                   style: TextStyle(
                                       fontFamily: 'Gilroy',
+                                      fontWeight: FontWeight.w800,
+
                                       fontSize: 18,
-                                      fontWeight: FontWeight.w700,
-                                      fontStyle: FontStyle.normal,
                                       height: 1.2),
                                 ),
                               ],
