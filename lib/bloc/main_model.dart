@@ -16,7 +16,7 @@ class MainModel extends Model {
     notifyListeners();
   }
 
-  bool _isLoading = true;
+  bool _isLoading = false;
   get isLoading => _isLoading;
   set setIsLoading(bool load){
     _isLoading = load;
