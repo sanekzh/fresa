@@ -55,7 +55,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 10.0),
+                    padding: EdgeInsets.fromLTRB(0.0, 68.0, 0.0, 10.0),
                   ),
                   Form(
                     key: this._formKey,
@@ -70,6 +70,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                           Text('Codigo de SMS', style: TextStyle(fontSize: 24,
                             fontWeight: FontWeight.bold,
 //                            fontFamily: 'Gilroy',
+
                             color: Color.fromRGBO(74, 54, 54, 1),
                           ),),
                           Padding(
@@ -141,7 +142,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                       style: TextStyle(
                                           fontWeight: FontWeight.w900,
                                           fontStyle: FontStyle.normal,
-                                          letterSpacing: 2.0,
+                                          letterSpacing: 0,
 //                                    fontFamily: 'Gilroy',
                                           color: Colors.white, height: 1, fontSize: 18.0
                                       )

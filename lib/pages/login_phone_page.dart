@@ -80,7 +80,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                     child: Column(
                       children: <Widget>[
                         Padding(
-                            padding: EdgeInsets.fromLTRB(10.0, 100.0, 10.0, 40.0),
+                            padding: EdgeInsets.fromLTRB(10.0, 110.0, 10.0, 40.0),
 
                             child: TextFormField(
 
@@ -93,7 +93,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   keyboardType: TextInputType.number,
                                   onSaved: (value) => model.setPhone = value,
                                   decoration: InputDecoration(
-                                      contentPadding: new EdgeInsets.symmetric(vertical: 25.0, horizontal: 10.0),
+                                      contentPadding: new EdgeInsets.symmetric(vertical: 22.0, horizontal: 10.0),
                                       prefixIcon: Padding(
                                         padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
                                         child:  new IconButton(
@@ -108,8 +108,8 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                           style: BorderStyle.none,
                                         ),
                                       ),                                      hintText: 'Telefono',
-                                      hintStyle: TextStyle(fontSize: 16,
-                                        letterSpacing: 1.0,
+                                      hintStyle: TextStyle(fontSize: 18,
+                                        letterSpacing: 0,
                                         fontWeight: FontWeight.w800,
 //                                        fontFamily: 'Gilroy',
                                         color: Color.fromRGBO(74, 54, 54, 1),

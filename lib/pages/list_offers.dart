@@ -468,7 +468,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
               children: <Widget>[
                 i == 1
                     ? Padding(
-                        padding: EdgeInsets.fromLTRB(39.0, 17.0, 0.0, 20.0),
+                        padding: EdgeInsets.fromLTRB(39.0, 20.0, 0.0, 20.0),
                         child: new Text(
                           'Mis Oportunidades',
                           style: TextStyle(
@@ -580,7 +580,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 240,
+                                      height: 247,
 //                                height: 280, android
                                       child: Text(''),
                                     )
@@ -621,7 +621,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                       16.0)),
                                           child: new Container(
                                             padding: new EdgeInsets.fromLTRB(
-                                                0.0, 20.0, 40.0, 20.0),
+                                                0.0, 22.0, 40.0, 18.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -640,7 +640,13 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                 Container(
                                                   width: 200,
                                                   child: Text(
-                                                      'Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'),
+                                                      'Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontFamily: 'Gilroy',
+                                                    fontWeight: FontWeight.w500,
+                                                    height: 1.2,
+                                                  ),),
                                                 ),
                                               ],
                                             ),
@@ -648,13 +654,14 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     ]),
                                 Padding(
                                   padding:
-                                      EdgeInsets.fromLTRB(0.0, 11.0, 0.0, 0.0),
+                                      EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
                                 ),
                                 new Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       new Card(
+
                                           color:
                                               Color.fromRGBO(254, 237, 235, 1),
                                           shape: new RoundedRectangleBorder(
@@ -663,7 +670,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                       16.0)),
                                           child: new Container(
                                             padding: new EdgeInsets.fromLTRB(
-                                                0.0, 20.0, 40.0, 20.0),
+                                                0.0, 20.0, 40.0, 18.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -683,7 +690,13 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                 Container(
                                                   width: 200,
                                                   child: Text(
-                                                      'Dos pizzas por el precio de una. Todos los jueves durante todo el día.'),
+                                                      'Dos pizzas por el precio de una. Todos los jueves durante todo el día.',
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontFamily: 'Gilroy',
+                                                        fontWeight: FontWeight.w500,
+                                                        height: 1.2,
+                                                      )),
                                                 ),
                                               ],
                                             ),
@@ -786,7 +799,11 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                               Navigator.of(context).push(route);
                                             }),
                                       ),
-                                    ])
+                                    ]),
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                ),
                               ],
                             ),
                           ),
@@ -806,37 +823,37 @@ class _ListOffersPageState extends State<ListOffersPage> {
     OfferModel model = widget.model;
     return new Scaffold(
         backgroundColor: Color.fromRGBO(254, 237, 235, 1),
-        appBar: new AppBar(
-          centerTitle: false,
-          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
-          elevation: 0,
-          title: new Text(
-            'Mis Oportunidades',
-            style: TextStyle(
-                color: Color.fromRGBO(87, 86, 86, 1),
-                fontWeight: FontWeight.w800,
-                letterSpacing: 1.0,
-            fontSize: 18,
-            height: 1),
-
-          ),
-          actions: <Widget>[
-
-                 IconButton(
-                    icon: const Icon(Icons.exit_to_app),
-                    tooltip: 'Logout',
-                    onPressed: () {
-                      saveLogout();
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPhone()),
-                        (Route<dynamic> route) => false,
-                      );
-                      model.setUserName = '';
-                    },
-                  ),
-          ],
-        ),
+//        appBar: new AppBar(
+//          centerTitle: false,
+//          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
+//          elevation: 0,
+//          title: new Text(
+//            'Mis Oportunidades',
+//            style: TextStyle(
+//                color: Color.fromRGBO(87, 86, 86, 1),
+//                fontWeight: FontWeight.w800,
+//                letterSpacing: 1.0,
+//            fontSize: 18,
+//            height: 1),
+//
+//          ),
+//          actions: <Widget>[
+//
+//                 IconButton(
+//                    icon: const Icon(Icons.exit_to_app),
+//                    tooltip: 'Logout',
+//                    onPressed: () {
+//                      saveLogout();
+//                      Navigator.pushAndRemoveUntil(
+//                        context,
+//                        MaterialPageRoute(builder: (context) => LoginPhone()),
+//                        (Route<dynamic> route) => false,
+//                      );
+//                      model.setUserName = '';
+//                    },
+//                  ),
+//          ],
+//        ),
         body: FutureBuilder<List<Company>>(
             future: model.listCompany,
             builder: (_, AsyncSnapshot<List<Company>> snapshot) {
