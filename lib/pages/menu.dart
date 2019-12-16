@@ -158,8 +158,7 @@ class _MenuPageState extends State<MenuPage>
   Widget build(BuildContext context) {
     MenuModel model = widget.model;
 
-    return SafeArea(
-        child: new Scaffold(
+    return  new Scaffold(
       backgroundColor: Color.fromRGBO(254, 237, 235, 1),
 //      appBar: PreferredSize(
 //        preferredSize: Size.fromHeight(123.0),
@@ -267,6 +266,6 @@ class _MenuPageState extends State<MenuPage>
               );
             }
           }),
-    ));
+    );
   }
 }
