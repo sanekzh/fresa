@@ -110,10 +110,11 @@ class _ListOffersPageState extends State<ListOffersPage> {
                           style: TextStyle(
                               color: Color.fromRGBO(87, 86, 86, 1),
                               fontFamily: 'Gilroy',
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: 1.0,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 0.0,
                               fontSize: 18,
-                              height: 1),
+//                              height: 1
+                          ),
                         ),
                       )
                     : Container(
@@ -131,7 +132,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                 ? Color.fromRGBO(254, 237, 235, 1)
                                 : Colors.white,
 //                          height: 20,
-                            height:  index == 0 ? 50 : 20,
+                            height:  20,
                           ),
                           Container(
                             decoration: new BoxDecoration(
@@ -473,10 +474,12 @@ class _ListOffersPageState extends State<ListOffersPage> {
                           'Mis Oportunidades',
                           style: TextStyle(
                               color: Color.fromRGBO(87, 86, 86, 1),
-                              fontWeight: FontWeight.w800,
-                              letterSpacing: 0,
+                            fontFamily: 'Gilroy',
+                            fontWeight: FontWeight.w900,
+                              letterSpacing: 0.0,
                               fontSize: 18,
-                              height: 1),
+//                              height: 1
+                          ),
                         ),
                       )
                     : Container(
