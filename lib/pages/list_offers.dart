@@ -184,89 +184,11 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                   ),
 
                                 ),
-
-//                                Container(
-//                                  width: 72,
-//                                  height: 36,
-//                                  decoration: new BoxDecoration(
-//                                      borderRadius:
-//                                          new BorderRadius.only(
-//                                          topLeft: const Radius.circular(10.0),
-//                                          bottomRight: const Radius.circular(10.0))),
-//                                  color: Color.fromRGBO(195, 48, 48, 1),
-//                                  child: Column(
-//                                    children: <Widget>[
-//                                      new Text("Saldo:",
-//                                          style: TextStyle(
-//                                              fontWeight: FontWeight.bold,
-//                                              color: Colors.white,
-//                                              fontSize: 8)),
-//                                      new Text(
-//                                          "${listCompany[index].balance.toString()} \u20AC",
-//                                          style: TextStyle(
-//                                              fontWeight: FontWeight.bold,
-//                                              color: Colors.white,
-//                                              fontSize: 15)),
-//                                    ],
-//                                  ),
-//                                ),
                               ),
                               SizedBox(
                                 height: 280,
                                 child: Text(''),
                               )
-//                            new Row(
-//
-//                                mainAxisSize: MainAxisSize.max,
-//                                mainAxisAlignment:
-//                                MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Container(),
-//                                  new Text(
-//                                    listCompany[index].name,
-//                                    style: TextStyle(
-//                                        fontWeight: FontWeight.bold),
-//                                  ),
-////                                      new Text('                    '),
-////                              Stack(
-////                                children: <Widget>[
-////                                  Positioned(
-////                                    top: -5,
-////                                    right: 5,
-////                                    child: Container(
-////                                      width: 10,
-////                                      height: 10,
-////                                      color: Colors.black,
-////                                    ),
-////                                  )
-////                                ],
-////                              ),
-//
-//                                  Container(
-//                                    width: 72,
-//                                    height: 36,
-//                                    color: Color.fromRGBO(195, 48, 48, 1),
-//
-//
-//                                    child: Column(
-//                                      children: <Widget>[
-//                                        new Text(
-//                                            "Saldo:",
-//                                            style: TextStyle(
-//                                                fontWeight: FontWeight.bold,
-//                                                color: Colors.white,
-//                                                fontSize: 8)),
-//                                        new Text(
-//                                            "${listCompany[index].balance.toString()} \u20AC",
-//                                            style: TextStyle(
-//                                                fontWeight: FontWeight.bold,
-//                                                color: Colors.white,
-//                                                fontSize: 15)),
-//                                      ],
-//                                    ),
-//                                  ),
-//
-//                                ]),
                             ],
                           ),
 
@@ -367,8 +289,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 21.0),
                           ),
-                          listCompany[index].has_menu
-                              ? new Row(
+                          new Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
@@ -445,7 +366,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             Navigator.of(context).push(route);
                                           }),
                                     ])
-                              : Text('')
+
                         ],
                       ),
                     ),

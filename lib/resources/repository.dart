@@ -18,8 +18,8 @@ class Repository {
   }
 
   final menuApiProvider = MenuApiProvider();
-  Future <List<CategoryCompany>> fetchMenu() async {
-    return menuApiProvider.fetchMenuCompanyData();
+  Future <List<CategoryCompany>> fetchMenu(String companyName) async {
+    return menuApiProvider.fetchMenuCompanyData(companyName);
   }
 
 }

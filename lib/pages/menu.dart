@@ -45,7 +45,7 @@ class _MenuPageState extends State<MenuPage>
   @override
   void initState() {
     super.initState();
-    widget.model.initFunc();
+    widget.model.initFunc(widget.companyName);
     _scrollController.addListener(() {
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.reverse) {

@@ -34,8 +34,8 @@ class MenuModel extends Model {
     notifyListeners();
   }
 
-  void initFunc() {
-    setListMenu = _repository.fetchMenu();
+  void initFunc(String companyName) {
+    setListMenu = _repository.fetchMenu(companyName);
     loadUserNameData().then((value) {
       _username = value != null ? value : '';
       notifyListeners();
