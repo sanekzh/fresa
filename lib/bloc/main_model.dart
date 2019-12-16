@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fresa/resources/repository.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+//import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MainModel extends Model {
@@ -30,7 +30,7 @@ class MainModel extends Model {
     notifyListeners();
   }
 
-  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+//  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   String _homeScreenText = "Waiting for token...";
   String _messageText = "Waiting for message...";
 
@@ -47,40 +47,40 @@ class MainModel extends Model {
       }
       notifyListeners();
     });
-    _firebaseMessaging.getToken().then((token) {
-      print(token);
-      _repository.pushToken(token);
-    });
-
-    _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        _messageText = "Push Messaging message: $message";
-        notifyListeners();
-        print("onMessage: $message");
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        _messageText = "Push Messaging message: $message";
-        notifyListeners();
-        print("onLaunch: $message");
-      },
-      onResume: (Map<String, dynamic> message) async {
-        _messageText = "Push Messaging message: $message";
-        notifyListeners();
-        print("onResume: $message");
-      },
-    );
-    _firebaseMessaging.requestNotificationPermissions(
-        const IosNotificationSettings(sound: true, badge: true, alert: true));
-    _firebaseMessaging.onIosSettingsRegistered
-        .listen((IosNotificationSettings settings) {
-      print("Settings registered: $settings");
-    });
-    _firebaseMessaging.getToken().then((String token) {
-      assert(token != null);
-      _homeScreenText = "Push Messaging token: $token";
-      notifyListeners();
-      print(_homeScreenText);
-    });
+//    _firebaseMessaging.getToken().then((token) {
+//      print(token);
+//      _repository.pushToken(token);
+//    });
+//
+//    _firebaseMessaging.configure(
+//      onMessage: (Map<String, dynamic> message) async {
+//        _messageText = "Push Messaging message: $message";
+//        notifyListeners();
+//        print("onMessage: $message");
+//      },
+//      onLaunch: (Map<String, dynamic> message) async {
+//        _messageText = "Push Messaging message: $message";
+//        notifyListeners();
+//        print("onLaunch: $message");
+//      },
+//      onResume: (Map<String, dynamic> message) async {
+//        _messageText = "Push Messaging message: $message";
+//        notifyListeners();
+//        print("onResume: $message");
+//      },
+//    );
+//    _firebaseMessaging.requestNotificationPermissions(
+//        const IosNotificationSettings(sound: true, badge: true, alert: true));
+//    _firebaseMessaging.onIosSettingsRegistered
+//        .listen((IosNotificationSettings settings) {
+//      print("Settings registered: $settings");
+//    });
+//    _firebaseMessaging.getToken().then((String token) {
+//      assert(token != null);
+//      _homeScreenText = "Push Messaging token: $token";
+//      notifyListeners();
+//      print(_homeScreenText);
+//    });
 //    _firebaseMessaging.configure(
 //      onMessage: (Map<String, dynamic> message) async {
 //        print('on message $message');
@@ -99,32 +99,32 @@ class MainModel extends Model {
     });
   }
 
-  void firebaseCloudMessaging_Listeners() {
-    _firebaseMessaging.getToken().then((token) {
-      print(token);
-    });
-
-    _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print('on message $message');
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print('on resume $message');
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        print('on launch $message');
-      },
-    );
-  }
-
-  void iOS_Permission() {
-    _firebaseMessaging.requestNotificationPermissions(
-        IosNotificationSettings(sound: true, badge: true, alert: true));
-    _firebaseMessaging.onIosSettingsRegistered
-        .listen((IosNotificationSettings settings) {
-      print("Settings registered: $settings");
-    });
-  }
+//  void firebaseCloudMessaging_Listeners() {
+//    _firebaseMessaging.getToken().then((token) {
+//      print(token);
+//    });
+//
+//    _firebaseMessaging.configure(
+//      onMessage: (Map<String, dynamic> message) async {
+//        print('on message $message');
+//      },
+//      onResume: (Map<String, dynamic> message) async {
+//        print('on resume $message');
+//      },
+//      onLaunch: (Map<String, dynamic> message) async {
+//        print('on launch $message');
+//      },
+//    );
+//  }
+//
+//  void iOS_Permission() {
+//    _firebaseMessaging.requestNotificationPermissions(
+//        IosNotificationSettings(sound: true, badge: true, alert: true));
+//    _firebaseMessaging.onIosSettingsRegistered
+//        .listen((IosNotificationSettings settings) {
+//      print("Settings registered: $settings");
+//    });
+//  }
 
   Future<String> loadUserNameData() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
