@@ -6,7 +6,7 @@ import 'package:fresa/pages/list_offers.dart';
 import 'package:fresa/pages/menu.dart';
 
 ThemeData buildTheme() {
-  final ThemeData base = ThemeData();
+  final ThemeData base = ThemeData(fontFamily: 'Gilroy');
   return base.copyWith(
     hintColor: Colors.redAccent,
     primaryColor: Colors.redAccent,

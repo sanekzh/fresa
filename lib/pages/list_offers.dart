@@ -109,7 +109,8 @@ class _ListOffersPageState extends State<ListOffersPage> {
                           'Mis Oportunidades',
                           style: TextStyle(
                               color: Color.fromRGBO(87, 86, 86, 1),
-                              fontWeight: FontWeight.w800,
+                              fontFamily: 'Gilroy',
+                              fontWeight: FontWeight.w700,
                               letterSpacing: 1.0,
                               fontSize: 18,
                               height: 1),
@@ -332,7 +333,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       new SizedBox(
-                                        width: 100.0,
+                                        width: 102.0,
                                         height: 28.0,
                                         child: OutlineButton(
                                             shape: new RoundedRectangleBorder(
@@ -364,7 +365,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             10.0, 0.0, 0.0, 0.0),
                                       ),
                                       new SizedBox(
-                                        width: 100.0,
+                                        width: 102.0,
                                         height: 28.0,
                                         child: OutlineButton(
                                             shape: new RoundedRectangleBorder(
@@ -396,7 +397,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             0.0, 0.0, 10.0, 0.0),
                                       ),
                                       new SizedBox(
-                                        width: 100.0,
+                                        width: 102.0,
                                         height: 28.0,
                                         child: OutlineButton(
                                             shape: new RoundedRectangleBorder(
@@ -697,7 +698,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       new SizedBox(
-                                        width: 100.0,
+                                        width: 102.0,
                                         height: 28.0,
                                         child: OutlineButton(
                                             shape: new RoundedRectangleBorder(
@@ -728,7 +729,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             10.0, 0.0, 0.0, 0.0),
                                       ),
                                       new SizedBox(
-                                        width: 100.0,
+                                        width: 102.0,
                                         height: 28.0,
                                         child: OutlineButton(
                                             shape: new RoundedRectangleBorder(
@@ -759,7 +760,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             0.0, 0.0, 10.0, 0.0),
                                       ),
                                       new SizedBox(
-                                        width: 100.0,
+                                        width: 102.0,
                                         height: 28.0,
                                         child: OutlineButton(
                                             shape: new RoundedRectangleBorder(
