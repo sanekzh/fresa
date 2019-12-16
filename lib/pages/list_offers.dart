@@ -169,8 +169,8 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     ),
                                   ),
                                   Positioned(
-                                    top: 230,
-                                    left: 280,
+                                    top: 225,
+                                    left: 310,
                                     child: Container(
                                       width: 72,
                                       height: 36,
@@ -183,7 +183,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                               bottomRight: const Radius.circular(10.0))),
                                       child: Padding(
                                         padding: EdgeInsets.fromLTRB(
-                                            10.0, 2.5, 0.0, 0.0),
+                                            15.0, 2.5, 0.0, 0.0),
                                         child:  Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -260,8 +260,6 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                   height: 36.0,
                                                 ),
                                               ),
-
-//
                                               Container(
                                                 width: 200,
                                                 child: Text(
@@ -408,6 +406,11 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             );
                                             Navigator.of(context).push(route);
                                           }),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      child: Container(height: 20,),
                                     ),
 
                                   ])
