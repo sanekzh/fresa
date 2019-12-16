@@ -237,7 +237,7 @@ class _MenuPageState extends State<MenuPage>
                       } else {
                         return Padding(
                             padding:
-                                const EdgeInsets.fromLTRB(43.0, 0.0, 20.0, 0.0),
+                                const EdgeInsets.fromLTRB(45.0, 0.0, 20.0, 0.0),
                             child: Row(
                               children: <Widget>[
                                 Padding(
