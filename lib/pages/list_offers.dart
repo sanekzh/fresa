@@ -805,38 +805,38 @@ class _ListOffersPageState extends State<ListOffersPage> {
     OfferModel model = widget.model;
     return new Scaffold(
         backgroundColor: Color.fromRGBO(254, 237, 235, 1),
-//        appBar: new AppBar(
-//          centerTitle: false,
-//          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
-//          elevation: 0,
-//          title: new Text(
-//            'Mis Oportunidades',
-//            style: TextStyle(
-//                color: Color.fromRGBO(87, 86, 86, 1),
-//                fontWeight: FontWeight.w800,
-//                letterSpacing: 1.0,
-//            fontSize: 18,
-//            height: 1),
-//
-//          ),
-//          actions: <Widget>[
-//            model.userName == ''
-//                ? Text('')
-//                : IconButton(
-//                    icon: const Icon(Icons.exit_to_app),
-//                    tooltip: 'Logout',
-//                    onPressed: () {
-//                      saveLogout();
-//                      Navigator.pushAndRemoveUntil(
-//                        context,
-//                        MaterialPageRoute(builder: (context) => LoginPhone()),
-//                        (Route<dynamic> route) => false,
-//                      );
-//                      model.setUserName = '';
-//                    },
-//                  ),
-//          ],
-//        ),
+        appBar: new AppBar(
+          centerTitle: false,
+          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
+          elevation: 0,
+          title: new Text(
+            'Mis Oportunidades',
+            style: TextStyle(
+                color: Color.fromRGBO(87, 86, 86, 1),
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.0,
+            fontSize: 18,
+            height: 1),
+
+          ),
+          actions: <Widget>[
+            model.userName == ''
+                ? Text('')
+                : IconButton(
+                    icon: const Icon(Icons.exit_to_app),
+                    tooltip: 'Logout',
+                    onPressed: () {
+                      saveLogout();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPhone()),
+                        (Route<dynamic> route) => false,
+                      );
+                      model.setUserName = '';
+                    },
+                  ),
+          ],
+        ),
         body: FutureBuilder<List<Company>>(
             future: model.listCompany,
             builder: (_, AsyncSnapshot<List<Company>> snapshot) {

@@ -72,9 +72,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
                           ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(55.0, 0.0, 55.0, 30.0),
-                            child: PinCodeTextField(
+                          PinCodeTextField(
                               autofocus: false,
                               controller: _codeController,
                               hideCharacter: false,
@@ -92,7 +90,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                 print("DONE $text");
                                 code = text;
                               },
-                              wrapAlignment: WrapAlignment.start,
+                              wrapAlignment: WrapAlignment.center,
                               pinBoxOuterPadding: const EdgeInsets.symmetric(horizontal: 8.0),
                               pinBoxDecoration: ProvidedPinBoxDecoration.defaultPinBoxDecoration,
                               pinBoxHeight: 64,
@@ -104,6 +102,8 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                               pinTextAnimatedSwitcherTransition: ProvidedPinBoxTextAnimation.scalingTransition,
                               pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
                             ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 15.0),
                           ),
                           Padding(
                               padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
