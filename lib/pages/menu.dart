@@ -66,15 +66,13 @@ class _MenuPageState extends State<MenuPage>
 
   item(element) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(43.0, 0.0, 20.0, 0.0),
+      padding: EdgeInsets.fromLTRB(43.0, 0.0, 10.0, 0.0),
       child: new Container(
         color: Color.fromRGBO(254, 237, 235, 1),
-        child: new SizedBox(
-          height: 60.0,
-          child: new Card(
+        child: new Card(
             elevation: 0,
             child: new Container(
-              padding: new EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 0.0),
+              padding: new EdgeInsets.fromLTRB(0.0, 15.0, 20.0, 0.0),
               color: Color.fromRGBO(254, 237, 235, 1),
 //              decoration: BoxDecoration(
 //color: Color.fromRGBO(254, 237, 235, 1),
@@ -98,7 +96,8 @@ class _MenuPageState extends State<MenuPage>
                                     fontSize: 12.0,
                                     fontFamily: 'Gilroy',
                                     color: Color.fromRGBO(135, 135, 135, 1),
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w800,
+                                    height: 1.2,
                                     fontStyle: FontStyle.normal,
                                   ),
 //                              overflow: TextOverflow.ellipsis,
@@ -118,7 +117,7 @@ class _MenuPageState extends State<MenuPage>
                                   fontSize: 12.0,
                                   fontFamily: 'Gilroy',
                                   color: Color.fromRGBO(135, 135, 135, 1),
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.w700,
                                   fontStyle: FontStyle.normal,
                                   height: 1.2)),
                         ),
@@ -133,6 +132,9 @@ class _MenuPageState extends State<MenuPage>
                                   height: 1.2)),
                         )
                       ]),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 5.0),
+                  ),
                   new Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -162,7 +164,7 @@ class _MenuPageState extends State<MenuPage>
               ),
             ),
           ),
-        ),
+
       ),
 
     );
@@ -212,7 +214,7 @@ class _MenuPageState extends State<MenuPage>
                       if (i == 1) {
                         return Padding(
                             padding:
-                                const EdgeInsets.fromLTRB(43.0, 32.0, 20.0, 0.0),
+                                const EdgeInsets.fromLTRB(45.0, 32.0, 20.0, 0.0),
                             child: Column(
                               children: <Widget>[
                                 Row(
@@ -252,7 +254,7 @@ class _MenuPageState extends State<MenuPage>
                       } else {
                         return Padding(
                             padding:
-                                const EdgeInsets.fromLTRB(45.0, 0.0, 20.0, 0.0),
+                                const EdgeInsets.fromLTRB(45.0, 12.0, 20.0, 0.0),
                             child: Row(
                               children: <Widget>[
                                 Padding(
