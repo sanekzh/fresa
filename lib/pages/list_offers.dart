@@ -104,7 +104,8 @@ class _ListOffersPageState extends State<ListOffersPage> {
                       color: index == 0
                           ? Color.fromRGBO(254, 237, 235, 1)
                           : Colors.white,
-                      height: 50,
+                      height: 20,
+//                      height: 50, android
                     ),
                     Container(
                       decoration: new BoxDecoration(
@@ -148,7 +149,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                 ),
                               ),
                               Positioned(
-                                top: 230,
+                                top: 200,
                                 left: 280,
                                 child: Container(
                                   width: 72,
@@ -186,7 +187,8 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                 ),
                               ),
                               SizedBox(
-                                height: 280,
+                                height: 240,
+//                                height: 280, android
                                 child: Text(''),
                               )
                             ],
@@ -223,11 +225,12 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                         borderRadius:
                                             new BorderRadius.circular(16.0)),
                                     child: new Container(
-                                      padding: new EdgeInsets.all(20.0),
+                                      padding: new EdgeInsets.fromLTRB(0.0, 20.0, 40.0, 20.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.start,
+
                                         children: <Widget>[
                                           Container(
                                             width: 80,
@@ -240,7 +243,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
 
 //
                                           Container(
-                                            width: 212,
+                                            width: 200,
                                             child: Text(
                                                 'Reciba un pequeño vaso de cerveza como regalo al realizar el pedido desde 15 euros.'),
                                           ),
@@ -256,12 +259,13 @@ class _ListOffersPageState extends State<ListOffersPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 new Card(
+
                                     color: Color.fromRGBO(254, 237, 235, 1),
                                     shape: new RoundedRectangleBorder(
                                         borderRadius:
                                             new BorderRadius.circular(16.0)),
                                     child: new Container(
-                                      padding: new EdgeInsets.all(20.0),
+                                      padding: new EdgeInsets.fromLTRB(0.0, 20.0, 40.0, 20.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -278,7 +282,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
 
 //
                                           Container(
-                                            width: 212,
+                                            width: 200,
                                             child: Text(
                                                 'Dos pizzas por el precio de una. Todos los jueves durante todo el día.'),
                                           ),
@@ -287,67 +291,86 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     )),
                               ]),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 21.0),
+                            padding: EdgeInsets.fromLTRB(0.0, 10.0, 30.0, 10.0),
                           ),
                           new Row(
+
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
+                                    new SizedBox(
+                                        width: 100.0,
+                                        height: 28.0,
+                                      child:
                                       OutlineButton(
                                           shape: new RoundedRectangleBorder(
                                               borderRadius:
-                                                  new BorderRadius.circular(
-                                                      5.0)),
+                                              new BorderRadius.circular(
+                                                  8.0)),
                                           child: Text("LA CARTA",
                                               style: TextStyle(
                                                   color: Color.fromRGBO(
                                                       191, 40, 73, 1),
+                                                  fontWeight: FontWeight.w800,
                                                   fontSize: 10.0)),
                                           color: Colors.redAccent,
                                           onPressed: () {
                                             var route = new MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  new Menu(
-                                                      companyName:
-                                                          listCompany[index]
-                                                              .name),
+                                              new Menu(
+                                                  companyName:
+                                                  listCompany[index]
+                                                      .name),
                                             );
                                             Navigator.of(context).push(route);
                                           }),
+                                    ),
+
                                       Padding(
                                         padding: EdgeInsets.fromLTRB(
-                                            25.0, 0.0, 0.0, 0.0),
+                                            10.0, 0.0, 0.0, 0.0),
                                       ),
-                                      OutlineButton(
+                                    new SizedBox(
+                                        width: 100.0,
+                                        height: 28.0,
+                                      child:OutlineButton(
                                           shape: new RoundedRectangleBorder(
                                               borderRadius:
-                                                  new BorderRadius.circular(
-                                                      5.0)),
+                                              new BorderRadius.circular(
+                                                  8.0)),
                                           child: Text("WHATSAPP",
                                               style: TextStyle(
                                                   color: Color.fromRGBO(
                                                       191, 40, 73, 1),
+                                                  fontWeight: FontWeight.w800,
                                                   fontSize: 10.0)),
                                           color: Colors.redAccent,
                                           onPressed: () {
                                             var route = new MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  new Menu(
-                                                      companyName:
-                                                          listCompany[index]
-                                                              .name),
+                                              new Menu(
+                                                  companyName:
+                                                  listCompany[index]
+                                                      .name),
                                             );
                                             Navigator.of(context).push(route);
                                           }),
+
+                                    ),
+
                                       Padding(
                                         padding: EdgeInsets.fromLTRB(
-                                            0.0, 0.0, 25.0, 0.0),
+                                            0.0, 0.0, 10.0, 0.0),
                                       ),
-                                      OutlineButton(
+                                    new SizedBox(
+                                      width: 100.0,
+                                      height: 28.0,
+                                      child:  OutlineButton(
+
                                           shape: new RoundedRectangleBorder(
                                               borderRadius:
-                                                  new BorderRadius.circular(
-                                                      5.0)),
+                                              new BorderRadius.circular(
+                                                  8.0)),
                                           child: Text("GOOGLE MAPS",
                                               style: TextStyle(
                                                   color: Color.fromRGBO(
@@ -358,13 +381,15 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                           onPressed: () {
                                             var route = new MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  new Menu(
-                                                      companyName:
-                                                          listCompany[index]
-                                                              .name),
+                                              new Menu(
+                                                  companyName:
+                                                  listCompany[index]
+                                                      .name),
                                             );
                                             Navigator.of(context).push(route);
                                           }),
+                                    ),
+
                                     ])
 
                         ],
@@ -386,13 +411,18 @@ class _ListOffersPageState extends State<ListOffersPage> {
     return new Scaffold(
         backgroundColor: Color.fromRGBO(254, 237, 235, 1),
         appBar: new AppBar(
+          centerTitle: false,
           backgroundColor: Color.fromRGBO(254, 237, 235, 1),
           elevation: 0,
           title: new Text(
             'Mis Oportunidades',
             style: TextStyle(
                 color: Color.fromRGBO(87, 86, 86, 1),
-                fontWeight: FontWeight.w900),
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.0,
+            fontSize: 18,
+            height: 1),
+
           ),
           actions: <Widget>[
             model.userName == ''
