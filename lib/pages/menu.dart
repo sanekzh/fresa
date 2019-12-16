@@ -70,7 +70,7 @@ class _MenuPageState extends State<MenuPage>
       child: new Container(
         color: Color.fromRGBO(254, 237, 235, 1),
         child: new SizedBox(
-          height: 80.0,
+          height: 60.0,
           child: new Card(
             elevation: 0,
             child: new Container(
@@ -91,10 +91,18 @@ class _MenuPageState extends State<MenuPage>
                       children: <Widget>[
                         Expanded(
                           child: Container(
+                            width: 280,
                             child: Text(
                               '${element.name}',
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
+                                style: TextStyle(
+                                    fontSize: 12.0,
+                                    fontFamily: 'Gilroy',
+                                    color: Color.fromRGBO(135, 135, 135, 1),
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FontStyle.normal,
+                                  ),
+//                              overflow: TextOverflow.ellipsis,
+//                              maxLines: 2,
                             ),
                           ),
                         ),
@@ -102,9 +110,10 @@ class _MenuPageState extends State<MenuPage>
                           padding: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
                         ),
                         Container(
+
                           child: Text('${element.price.toString()} ',
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
+//                              overflow: TextOverflow.ellipsis,
+//                              maxLines: 2,
                               style: TextStyle(
                                   fontSize: 12.0,
                                   fontFamily: 'Gilroy',
