@@ -177,7 +177,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     ),
                                     Positioned(
                                       top: 225,
-                                      left: 310,
+                                      left: 320,
                                       child: Container(
                                         width: 72,
                                         height: 36,
@@ -201,7 +201,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                               new Text("Saldo",
                                                   style: TextStyle(
                                                       fontWeight:
-                                                          FontWeight.bold,
+                                                          FontWeight.normal,
                                                       color: Colors.white,
                                                       fontSize: 8)),
                                               new Text(
@@ -468,13 +468,13 @@ class _ListOffersPageState extends State<ListOffersPage> {
               children: <Widget>[
                 i == 1
                     ? Padding(
-                        padding: EdgeInsets.fromLTRB(39.0, 37.0, 0.0, 20.0),
+                        padding: EdgeInsets.fromLTRB(39.0, 17.0, 0.0, 20.0),
                         child: new Text(
                           'Mis Oportunidades',
                           style: TextStyle(
                               color: Color.fromRGBO(87, 86, 86, 1),
                               fontWeight: FontWeight.w800,
-                              letterSpacing: 1.0,
+                              letterSpacing: 0,
                               fontSize: 18,
                               height: 1),
                         ),
@@ -540,7 +540,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                     ),
                                     Positioned(
                                       top: 200,
-                                      left: 280,
+                                      left: 275,
                                       child: Container(
                                         width: 72,
                                         height: 36,
@@ -561,10 +561,10 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: <Widget>[
-                                              new Text("Saldo:",
+                                              new Text("Saldo",
                                                   style: TextStyle(
                                                       fontWeight:
-                                                          FontWeight.bold,
+                                                          FontWeight.normal,
                                                       color: Colors.white,
                                                       fontSize: 8)),
                                               new Text(
@@ -806,38 +806,37 @@ class _ListOffersPageState extends State<ListOffersPage> {
     OfferModel model = widget.model;
     return new Scaffold(
         backgroundColor: Color.fromRGBO(254, 237, 235, 1),
-//        appBar: new AppBar(
-//          centerTitle: false,
-//          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
-//          elevation: 0,
-//          title: new Text(
-//            'Mis Oportunidades',
-//            style: TextStyle(
-//                color: Color.fromRGBO(87, 86, 86, 1),
-//                fontWeight: FontWeight.w800,
-//                letterSpacing: 1.0,
-//            fontSize: 18,
-//            height: 1),
-//
-//          ),
-//          actions: <Widget>[
-//            model.userName == ''
-//                ? Text('')
-//                : IconButton(
-//                    icon: const Icon(Icons.exit_to_app),
-//                    tooltip: 'Logout',
-//                    onPressed: () {
-//                      saveLogout();
-//                      Navigator.pushAndRemoveUntil(
-//                        context,
-//                        MaterialPageRoute(builder: (context) => LoginPhone()),
-//                        (Route<dynamic> route) => false,
-//                      );
-//                      model.setUserName = '';
-//                    },
-//                  ),
-//          ],
-//        ),
+        appBar: new AppBar(
+          centerTitle: false,
+          backgroundColor: Color.fromRGBO(254, 237, 235, 1),
+          elevation: 0,
+          title: new Text(
+            'Mis Oportunidades',
+            style: TextStyle(
+                color: Color.fromRGBO(87, 86, 86, 1),
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.0,
+            fontSize: 18,
+            height: 1),
+
+          ),
+          actions: <Widget>[
+
+                 IconButton(
+                    icon: const Icon(Icons.exit_to_app),
+                    tooltip: 'Logout',
+                    onPressed: () {
+                      saveLogout();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPhone()),
+                        (Route<dynamic> route) => false,
+                      );
+                      model.setUserName = '';
+                    },
+                  ),
+          ],
+        ),
         body: FutureBuilder<List<Company>>(
             future: model.listCompany,
             builder: (_, AsyncSnapshot<List<Company>> snapshot) {
