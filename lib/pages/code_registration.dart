@@ -62,6 +62,9 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                     child: Padding(
                       padding: EdgeInsets.all(0.0),
                       child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
 
                           Text('Codigo de SMS', style: TextStyle(fontSize: 24,
@@ -72,9 +75,9 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
                           ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(55.0, 0.0, 55.0, 30.0),
-                            child: PinCodeTextField(
+                          Align(
+                            alignment: Alignment.center,
+                            child:PinCodeTextField(
                               autofocus: false,
                               controller: _codeController,
                               hideCharacter: false,
@@ -105,6 +108,8 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                               pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
                             ),
                           ),
+
+
                           Padding(
                               padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                               child: Container(
@@ -136,6 +141,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                       style: TextStyle(
                                           fontWeight: FontWeight.w900,
                                           fontStyle: FontStyle.normal,
+                                          letterSpacing: 2.0,
 //                                    fontFamily: 'Gilroy',
                                           color: Colors.white, height: 1, fontSize: 18.0
                                       )

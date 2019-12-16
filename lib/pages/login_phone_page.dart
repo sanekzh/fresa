@@ -109,6 +109,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                         ),
                                       ),                                      hintText: 'Telefono',
                                       hintStyle: TextStyle(fontSize: 16,
+                                        letterSpacing: 1.5,
                                         fontWeight: FontWeight.w800,
 //                                        fontFamily: 'Gilroy',
                                         color: Color.fromRGBO(74, 54, 54, 1),
@@ -145,6 +146,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   style: TextStyle(
                                     fontWeight: FontWeight.w900,
                                       fontStyle: FontStyle.normal,
+                                      letterSpacing: 2.0,
 //                                    fontFamily: 'Gilroy',
                                       color: Colors.white, height: 1, fontSize: 18.0
                                   )
