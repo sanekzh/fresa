@@ -189,7 +189,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: <Widget>[
 
-                                            new Text("Saldo:",
+                                            new Text("Saldo",
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.white,
@@ -407,11 +407,11 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             Navigator.of(context).push(route);
                                           }),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      child: Container(height: 20,),
-                                    ),
+//                                    Padding(
+//                                      padding: EdgeInsets.fromLTRB(
+//                                          0.0, 0.0, 0.0, 0.0),
+//                                      child: Container(height: 20,),
+//                                    ),
 
                                   ])
 
@@ -423,6 +423,11 @@ class _ListOffersPageState extends State<ListOffersPage> {
                   ),
                 ),
               ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                      0.0, 0.0, 0.0, 0.0),
+                  child: Container(height: 5, color: Colors.white,),
+                ),
             ],)
 
           );
