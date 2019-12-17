@@ -91,7 +91,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
 
   int i = 0;
 
-  ListViewFuncAndroid(listCompany, width, height) {
+  ListViewFuncAndroid(listCompany) {
     return new ListView.builder(
       shrinkWrap: true,
       itemCount: listCompany.length,
@@ -131,8 +131,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                             color: index == 0
                                 ? Color.fromRGBO(254, 237, 235, 1)
                                 : Colors.white,
-//                          height: 20,
-                            height:  20,
+                          height: 20,
                           ),
                           Container(
                             decoration: new BoxDecoration(
@@ -154,49 +153,29 @@ class _ListOffersPageState extends State<ListOffersPage> {
                             padding: new EdgeInsets.all(0.0),
                             child: new Column(
                               children: <Widget>[
+
                                 Container(
-                                  height: height * 4,
-                                  //                                  padding: new EdgeInsets.only(left: 0.0, bottom: 18.0, right: 0.0),
-//                                  decoration: new BoxDecoration(
-//                                    borderRadius: new BorderRadius.only(
-//                                          topLeft: const Radius.circular(24.0),
-//                                          topRight:
-//                                          const Radius.circular(24.0)),
-//                                    image: new DecorationImage(
-//                                      image: new AssetImage('res/images/card_image.png'),
-//                                      fit: BoxFit.fitHeight,
-//                                    ),
-//                                  ),
+                                  height: 275,
                                   child: Stack(
                                   children: <Widget>[
-//                                    Container(
-//                                      decoration: BoxDecoration(
-//        borderRadius: new BorderRadius.only(
-//                                          topLeft: const Radius.circular(24.0),
-//                                          topRight:
-//                                          const Radius.circular(24.0)),
-//                                        image: DecorationImage(
-//                                          image: AssetImage('res/images/card_image.png'),
-//                                          fit: BoxFit.cover,
-//                                        ),
-//                                      ),
-//                                    ),
                                     new ClipRRect(
+
                                       borderRadius: new BorderRadius.only(
                                           topLeft: const Radius.circular(24.0),
                                           topRight:
                                           const Radius.circular(24.0)),
                                       child: Image.asset(
                                         'res/images/card_image.png',
+                                          height: 250,
+                                          fit:BoxFit.fill
                                       ),
                                     ),
 
-
-                                    Positioned(
-                                      left: width * 0.9,
-                                      bottom: height * 0.5,
-                                      child: Container(
-                                        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 50.0),
+                                    Positioned.fill(
+                                      child: Align(
+                                          alignment: Alignment.bottomLeft,
+                                          child: Container(
+                                        padding: new EdgeInsets.fromLTRB(40.0, 0.0, 0.0, 70.0),
                                         child: new Text(
                                         listCompany[index].name,
                                         style: TextStyle(
@@ -204,52 +183,54 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       ),),
+
+                                      ),
                                     ),
-                                    Positioned(
-                                      right: width * 0.5,
-                                      bottom: height * 0.025,
-                                      child: Container(
-                                        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
-                                        child:  Container(
-                                        width: 72,
-                                        decoration: new BoxDecoration(
-                                            color:
-                                            Color.fromRGBO(195, 48, 48, 1),
-                                            borderRadius: new BorderRadius.only(
-                                                topLeft:
-                                                const Radius.circular(10.0),
-                                                bottomRight:
-                                                const Radius.circular(
-                                                    10.0))),
-                                        child: Padding(
-                                          padding: EdgeInsets.fromLTRB(
-                                              15.0, 2.5, 0.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              new Text("Saldo",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                      FontWeight.normal,
-                                                      color: Colors.white,
-                                                      fontSize: 8)),
-                                              new Text(
-                                                  "${listCompany[index].balance.toString().split('.')[0]}",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                      FontWeight.w900,
-                                                      color: Colors.white,
-                                                      fontSize: 18)),
-                                            ],
+                                    Positioned.fill(
+                                      child: Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Container(
+                                          padding: new EdgeInsets.fromLTRB(0.0, 0.0, 45.0, 10.0),
+                                          child:  Container(
+                                          height: 33.5,
+                                          width: 73,
+                                          decoration: new BoxDecoration(
+                                              color:
+                                              Color.fromRGBO(195, 48, 48, 1),
+                                              borderRadius: new BorderRadius.only(
+                                                  topLeft:
+                                                  const Radius.circular(10.0),
+                                                  bottomRight:
+                                                  const Radius.circular(
+                                                      10.0))),
+                                          child: Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                                10.0, 2.5, 0.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                new Text("Saldo",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                        FontWeight.normal,
+                                                        color: Colors.white,
+                                                        fontSize: 8)),
+                                                new Text(
+                                                    "${listCompany[index].balance.toString().split('.')[0]}",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                        FontWeight.w900,
+                                                        color: Colors.white,
+                                                        fontSize: 18)),
+                                              ],
+                                            ),
                                           ),
                                         ),
+                                        ),
                                       ),
-                                      ),
-
                                     ),
-
                                   ],
                                 ),
                                 ),
@@ -433,11 +414,6 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                               Navigator.of(context).push(route);
                                             }),
                                       ),
-//                                    Padding(
-//                                      padding: EdgeInsets.fromLTRB(
-//                                          0.0, 0.0, 0.0, 0.0),
-//                                      child: Container(height: 20,),
-//                                    ),
                                     ]),
                                 Padding(
                                   padding: EdgeInsets.fromLTRB(
@@ -833,17 +809,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
   @override
   Widget build(BuildContext context) {
     OfferModel model = widget.model;
-//    final size =MediaQuery.of(context).size;
-    double width;
-    double height;
-    if (MediaQuery.of(context).orientation == Orientation.landscape){
-      width = MediaQuery.of(context).size.width * 0.25; // width = 25% of the screen
-      height = MediaQuery.of(context).size.height * 0.25; //height = 25% of the screen
-    }
-    else{
-      width = MediaQuery.of(context).size.width * 0.10; // width = 10% of the screen
-      height = MediaQuery.of(context).size.height * 0.10; //height = 10% of the screen
-    }
+
     return new Scaffold(
         backgroundColor: Color.fromRGBO(254, 237, 235, 1),
 //        appBar: new AppBar(
@@ -886,7 +852,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                   print('andropid');
                   i = 0;
                   return Stack(
-                      children: <Widget>[ListViewFuncAndroid(listCompany, width, height)]);
+                      children: <Widget>[ListViewFuncAndroid(listCompany)]);
                 } else {
                   print('ios');
                   i = 0;
