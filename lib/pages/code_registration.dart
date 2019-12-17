@@ -32,6 +32,8 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+
+        resizeToAvoidBottomPadding: false,
         backgroundColor: Color.fromRGBO(254, 237, 235, 1),
 //        appBar: new AppBar(
 //          iconTheme: IconThemeData(
@@ -41,10 +43,11 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
 //          backgroundColor: Colors.white,
 //          elevation: 0.0,
 //        ),
+
         body: Container(
             padding: new EdgeInsets.all(25.0),
             child:
-                Column(
+            ListView(
 //                mainAxisAlignment: MainAxisAlignment.center,
 //                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -77,13 +80,13 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                             padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
                           ),
                           PinCodeTextField(
-                              autofocus: false,
+                              autofocus: true,
                               controller: _codeController,
                               hideCharacter: false,
                               highlight: true,
-                              highlightColor: Colors.white,
+                              highlightColor: Color.fromRGBO(195, 48, 48, 1),
                               defaultBorderColor: Colors.white,
-                              hasTextBorderColor: Colors.white,
+                              hasTextBorderColor: Colors.redAccent,
                               maxLength: 4,
                               onTextChanged: (text) {
                                 setState(() {
@@ -101,14 +104,15 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                               pinBoxRadius: 8,
                               pinBoxColor: Colors.white,
                               pinBoxWidth: 50,
-                              pinBoxBorderWidth: 0,
-                              pinTextStyle: TextStyle(fontSize: 30.0),
+                              pinBoxBorderWidth: 2,
+                              pinTextStyle: TextStyle(fontSize: 30.0,color: Colors.grey),
                               pinTextAnimatedSwitcherTransition: ProvidedPinBoxTextAnimation.scalingTransition,
                               pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
                             ),
                           Padding(
                             padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 15.0),
                           ),
+
 
 
                           Padding(
