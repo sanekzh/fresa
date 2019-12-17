@@ -33,6 +33,8 @@ class LoginPhonePage extends StatefulWidget {
 
 class _LoginPhonePageState extends State<LoginPhonePage> {
 
+//  var controller_mask = new MaskedTextController(mask: '+34(00) 000 00 00');
+
   @override
   void initState() {
     super.initState();
@@ -62,27 +64,31 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
               ),
               alignment: FractionalOffset.center,
             )
-                : Column(
+                :
+            Container(child: Column(children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(90.0, 70.0, 90.0, 10.0),
+                child:  Center(
+                  child: Image.asset('res/images/logo_m.png',),
+                ),
+              ),Flexible(child:  SingleChildScrollView(
+                reverse: true,
+                child: Column(
 //              mainAxisAlignment: MainAxisAlignment.center,
 //              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
+                  children: <Widget>[
 
-                Padding(
-                  padding: EdgeInsets.fromLTRB(90.0, 70.0, 90.0, 10.0),
-                  child:  Center(
-                    child: Image.asset('res/images/logo_m.png',),
-                  ),
-                ),
-                Form(
-                  key: model.formKey,
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                            padding: EdgeInsets.fromLTRB(10.0, 110.0, 10.0, 40.0),
 
-                            child: TextFormField(
+                    Form(
+                      key: model.formKey,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10.0, 110.0, 10.0, 40.0),
+
+                              child: TextFormField(
 
 //                                  validator: (value) {
 //                                    if (value.isEmpty) {
@@ -92,7 +98,23 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   controller: model.phoneNumberController,
                                   keyboardType: TextInputType.number,
                                   onSaved: (value) => model.setPhone = value,
+                                  onTap: () {
+
+                                  },
+
+                                  style: TextStyle(fontSize: 18,
+                                    letterSpacing: 0,
+                                    fontWeight: FontWeight.w800,
+//                                  color: Colors.grey,
+//                                        fontFamily: 'Gilroy',
+                                    color: Color.fromRGBO(74, 54, 54, 1),
+                                  ),
+//                                cursorColor: Colors.white,
                                   decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                                        borderSide: BorderSide(width: 1,color: Colors.white),
+                                      ),
                                       contentPadding: new EdgeInsets.symmetric(vertical: 22.0, horizontal: 10.0),
                                       prefixIcon: Padding(
                                         padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
@@ -101,69 +123,79 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                           onPressed: null,
                                         ),
                                       ),
+                                      focusColor: Colors.redAccent,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide(
                                           width: 0,
-                                          style: BorderStyle.none,
+//                                          style: BoxBorder(
+//                                           b
+//                                          ),
                                         ),
-                                      ),                                      hintText: 'Telefono',
+                                      ),
+
+//                                      labelText: 'Telefono',
+                                      hintText: '+34 (00) 000 00 00',
                                       hintStyle: TextStyle(fontSize: 18,
                                         letterSpacing: 0,
                                         fontWeight: FontWeight.w800,
+                                        color: Colors.grey,
 //                                        fontFamily: 'Gilroy',
-                                        color: Color.fromRGBO(74, 54, 54, 1),
+//                                        color: Color.fromRGBO(74, 54, 54, 1),
                                       ),
                                       filled: true,
                                       fillColor: Colors.white70
                                   )
                               ),
-
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                          child: Container(
-                            height: 64.0,
-                            width: double.infinity,
-                            margin: const EdgeInsets.only(bottom: 1.0),
-                            child: RaisedButton(
-                              onPressed: () {
-                                if (model.formKey.currentState.validate()) {
-                                  model.formKey.currentState.save();
-                                  model.setIsLoading = true;
-                                  SystemChannels.textInput
-                                      .invokeMethod('TextInput.hide');
-                                  requestCheckPhone(
-                                      context, model.phoneNumberController.text);
-                                  model.setIsLoading = false;
-                                }
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(12.0),
-//                                  side: BorderSide(color: Colors.red)
-                              ),
-                              child: Text("SIGUIENTE PASO",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w900,
-                                      fontStyle: FontStyle.normal,
-                                      letterSpacing: 1.5,
-//                                    fontFamily: 'Gilroy',
-                                      color: Colors.white, height: 1, fontSize: 18.0
-                                  )
-                              ),
-                              color: Color.fromRGBO(195, 48, 48, 1),
                             ),
-                          )
+                            Padding(
+                                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                                child: Container(
+                                  height: 64.0,
+                                  width: double.infinity,
+                                  margin: const EdgeInsets.only(bottom: 1.0),
+                                  child: RaisedButton(
+                                    onPressed: () {
+                                      if (model.formKey.currentState.validate()) {
+                                        model.formKey.currentState.save();
+                                        model.setIsLoading = true;
+                                        SystemChannels.textInput
+                                            .invokeMethod('TextInput.hide');
+                                        requestCheckPhone(
+                                            context, model.phoneNumberController.text);
+                                        model.setIsLoading = false;
+                                      }
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: new BorderRadius.circular(12.0),
+//                                  side: BorderSide(color: Colors.red)
+                                    ),
+                                    child: Text("SIGUIENTE PASO",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 1.5,
+//                                    fontFamily: 'Gilroy',
+                                            color: Colors.white, height: 1, fontSize: 18.0
+                                        )
+                                    ),
+                                    color: Color.fromRGBO(195, 48, 48, 1),
+                                  ),
+                                )
+                            ),
+
+                          ],
                         ),
-
-                      ],
+                      ),
                     ),
-                  ),
-                ),
 
 
-              ],
-            ))
+                  ],
+                ),),)
+
+            ],),)
+
+            )
             : Container(
                 child: Center(child: CircularProgressIndicator()),
               )
