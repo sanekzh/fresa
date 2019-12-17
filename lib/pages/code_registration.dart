@@ -33,7 +33,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
 
-        resizeToAvoidBottomPadding: false,
+//        resizeToAvoidBottomPadding: false,
         backgroundColor: Color.fromRGBO(254, 237, 235, 1),
 //        appBar: new AppBar(
 //          iconTheme: IconThemeData(
@@ -45,122 +45,249 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
 //        ),
 
         body: Container(
-            padding: new EdgeInsets.all(25.0),
-            child:
-            ListView(
+          padding: new EdgeInsets.all(25.0),
+          child:  Container(child: Column(children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(90.0, 70.0, 90.0, 10.0),
+                child:  Center(
+                  child: Image.asset('res/images/logo_m.png',),
+                ),
+              ),Flexible(child:  SingleChildScrollView(
+                reverse: true,
+                child: Column(
 //                mainAxisAlignment: MainAxisAlignment.center,
 //                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(90.0, 70.0, 90.0, 10.0),
-                    child:  Center(
-                      child: Image.asset('res/images/logo_m.png',),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 68.0, 0.0, 10.0),
-                  ),
-                  Form(
-                    key: this._formKey,
-                    child: Padding(
-                      padding: EdgeInsets.all(0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
+                  children: <Widget>[
 
-                          Text('Codigo de SMS', style: TextStyle(fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                    Form(
+                      key: this._formKey,
+                      child: Padding(
+                        padding: EdgeInsets.all(0.0),
+                        child: Column(
+//                          mainAxisSize: MainAxisSize.max,
+//                          mainAxisAlignment: MainAxisAlignment.center,
+//                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0.0, 110.0, 0.0, 10.0),
+                              child: Text('Codigo de SMS', style: TextStyle(fontSize: 24,
+                                fontWeight: FontWeight.bold,
 //                            fontFamily: 'Gilroy',
 
-                            color: Color.fromRGBO(74, 54, 54, 1),
-                          ),),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-                          ),
-                          PinCodeTextField(
-                              autofocus: true,
-                              controller: _codeController,
-                              hideCharacter: false,
-                              highlight: true,
-                              highlightColor: Color.fromRGBO(195, 48, 48, 1),
-                              defaultBorderColor: Colors.white,
-                              hasTextBorderColor: Colors.redAccent,
-                              maxLength: 4,
-                              onTextChanged: (text) {
-                                setState(() {
-                                  code = text;
-                                });
-                              },
-                              onDone: (text){
-                                print("DONE $text");
-                                code = text;
-                              },
-                              wrapAlignment: WrapAlignment.center,
-                              pinBoxOuterPadding: const EdgeInsets.symmetric(horizontal: 8.0),
-                              pinBoxDecoration: ProvidedPinBoxDecoration.defaultPinBoxDecoration,
-                              pinBoxHeight: 64,
-                              pinBoxRadius: 8,
-                              pinBoxColor: Colors.white,
-                              pinBoxWidth: 50,
-                              pinBoxBorderWidth: 2,
-                              pinTextStyle: TextStyle(fontSize: 30.0,color: Colors.grey),
-                              pinTextAnimatedSwitcherTransition: ProvidedPinBoxTextAnimation.scalingTransition,
-                              pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
+                                color: Color.fromRGBO(74, 54, 54, 1),
+                              ),),
                             ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 15.0),
-                          ),
+
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
+                              child: PinCodeTextField(
+                                autofocus: true,
+                                controller: _codeController,
+                                hideCharacter: false,
+                                highlight: true,
+                                highlightColor:  Color.fromRGBO(195, 48, 48, 1),
+                                defaultBorderColor: Colors.white,
+                                hasTextBorderColor: Colors.redAccent,
+                                maxLength: 4,
+                                onTextChanged: (text) {
+                                  setState(() {
+                                    code = text;
+                                  });
+                                },
+                                onDone: (text){
+                                  print("DONE $text");
+                                  code = text;
+                                },
+                                wrapAlignment: WrapAlignment.center,
+                                pinBoxOuterPadding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                pinBoxDecoration: ProvidedPinBoxDecoration.defaultPinBoxDecoration,
+                                pinBoxHeight: 64,
+                                pinBoxRadius: 8,
+                                pinBoxColor: Colors.white,
+                                pinBoxWidth: 50,
+                                pinBoxBorderWidth: 2,
+                                pinTextStyle: TextStyle(fontSize: 30.0, color: Color.fromRGBO(74, 54, 54, 1),),
+                                pinTextAnimatedSwitcherTransition: ProvidedPinBoxTextAnimation.scalingTransition,
+                                pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
+                              ),
+                            ),
 
 
 
-                          Padding(
-                              padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                              child: Container(
-                                height: 64.0,
-                                width: double.infinity,
-                                margin: const EdgeInsets.only(bottom: 1.0),
-                                child: RaisedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState.validate()) {
-                                      _formKey.currentState.save();
-                                      print('OK!!!!!!!');
-                                      SystemChannels.textInput
-                                          .invokeMethod('TextInput.hide');
-                                      print(
-                                          '${_codeController.text}');
-                                      SystemChannels.textInput
-                                          .invokeMethod('TextInput.hide');
-                                      print(code);
-                                      print(_codeController.text);
-                                      requestLogIn(context, widget.phone, _codeController.text);
 
-                                    }
-                                  },
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: new BorderRadius.circular(12.0),
+                            Padding(
+                                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                                child: Container(
+                                  height: 64.0,
+                                  width: double.infinity,
+                                  margin: const EdgeInsets.only(bottom: 1.0),
+                                  child: RaisedButton(
+                                    onPressed: () {
+                                      if (_formKey.currentState.validate()) {
+                                        _formKey.currentState.save();
+                                        print('OK!!!!!!!');
+                                        SystemChannels.textInput
+                                            .invokeMethod('TextInput.hide');
+                                        print(
+                                            '${_codeController.text}');
+                                        SystemChannels.textInput
+                                            .invokeMethod('TextInput.hide');
+                                        print(code);
+                                        print(_codeController.text);
+                                        requestLogIn(context, widget.phone, _codeController.text);
+
+                                      }
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: new BorderRadius.circular(12.0),
 //                                  side: BorderSide(color: Colors.red)
-                                  ),
-                                  child: Text("SIGUIENTE PASO",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w900,
-                                          fontStyle: FontStyle.normal,
-                                          letterSpacing: 0,
+                                    ),
+                                    child: Text("SIGUIENTE PASO",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 0,
 //                                    fontFamily: 'Gilroy',
-                                          color: Colors.white, height: 1, fontSize: 18.0
-                                      )
+                                            color: Colors.white, height: 1, fontSize: 18.0
+                                        )
+                                    ),
+                                    color: Color.fromRGBO(195, 48, 48, 1),
                                   ),
-                                  color: Color.fromRGBO(195, 48, 48, 1),
-                                ),
-                              )
-                          ),
+                                )
+                            ),
 
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),));
+                  ],
+                ),))]))
+          )
+    );
+
+
+//        Container(
+//            padding: new EdgeInsets.all(25.0),
+//            child:   Container(child: Column(children: <Widget>[
+//              Padding(
+//                padding: EdgeInsets.fromLTRB(90.0, 70.0, 90.0, 10.0),
+//                child:  Center(
+//                  child: Image.asset('res/images/logo_m.png',),
+//                ),
+//              ),Flexible(child:  SingleChildScrollView(
+//                reverse: true,
+//                child: Column(
+////              mainAxisAlignment: MainAxisAlignment.center,
+////              crossAxisAlignment: CrossAxisAlignment.center,
+//                  children: <Widget>[
+//
+//
+//                    Form(
+//                      key: this._formKey,
+//                      child: Padding(
+//                        padding: EdgeInsets.all(0.0),
+//                        child: Column(
+//                          mainAxisSize: MainAxisSize.max,
+//                          mainAxisAlignment: MainAxisAlignment.center,
+//                          crossAxisAlignment: CrossAxisAlignment.center,
+//                          children: <Widget>[
+//
+//                            Text('Codigo de SMS', style: TextStyle(fontSize: 24,
+//                              fontWeight: FontWeight.bold,
+////                            fontFamily: 'Gilroy',
+//
+//                              color: Color.fromRGBO(74, 54, 54, 1),
+//                            ),),
+//                            Padding(
+//                              padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
+//                            ),
+//                            PinCodeTextField(
+//                              autofocus: true,
+//                              controller: _codeController,
+//                              hideCharacter: false,
+//                              highlight: true,
+//                              highlightColor: Color.fromRGBO(195, 48, 48, 1),
+//                              defaultBorderColor: Colors.white,
+//                              hasTextBorderColor: Colors.redAccent,
+//                              maxLength: 4,
+//                              onTextChanged: (text) {
+//                                setState(() {
+//                                  code = text;
+//                                });
+//                              },
+//                              onDone: (text){
+//                                print("DONE $text");
+//                                code = text;
+//                              },
+//                              wrapAlignment: WrapAlignment.center,
+//                              pinBoxOuterPadding: const EdgeInsets.symmetric(horizontal: 8.0),
+//                              pinBoxDecoration: ProvidedPinBoxDecoration.defaultPinBoxDecoration,
+//                              pinBoxHeight: 64,
+//                              pinBoxRadius: 8,
+//                              pinBoxColor: Colors.white,
+//                              pinBoxWidth: 50,
+//                              pinBoxBorderWidth: 2,
+//                              pinTextStyle: TextStyle(fontSize: 30.0,color: Colors.grey),
+//                              pinTextAnimatedSwitcherTransition: ProvidedPinBoxTextAnimation.scalingTransition,
+//                              pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
+//                            ),
+//                            Padding(
+//                              padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 15.0),
+//                            ),
+//
+//
+//
+//                            Padding(
+//                                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+//                                child: Container(
+//                                  height: 64.0,
+//                                  width: double.infinity,
+//                                  margin: const EdgeInsets.only(bottom: 1.0),
+//                                  child: RaisedButton(
+//                                    onPressed: () {
+//                                      if (_formKey.currentState.validate()) {
+//                                        _formKey.currentState.save();
+//                                        print('OK!!!!!!!');
+//                                        SystemChannels.textInput
+//                                            .invokeMethod('TextInput.hide');
+//                                        print(
+//                                            '${_codeController.text}');
+//                                        SystemChannels.textInput
+//                                            .invokeMethod('TextInput.hide');
+//                                        print(code);
+//                                        print(_codeController.text);
+//                                        requestLogIn(context, widget.phone, _codeController.text);
+//
+//                                      }
+//                                    },
+//                                    shape: RoundedRectangleBorder(
+//                                      borderRadius: new BorderRadius.circular(12.0),
+////                                  side: BorderSide(color: Colors.red)
+//                                    ),
+//                                    child: Text("SIGUIENTE PASO",
+//                                        style: TextStyle(
+//                                            fontWeight: FontWeight.w900,
+//                                            fontStyle: FontStyle.normal,
+//                                            letterSpacing: 0,
+////                                    fontFamily: 'Gilroy',
+//                                            color: Colors.white, height: 1, fontSize: 18.0
+//                                        )
+//                                    ),
+//                                    color: Color.fromRGBO(195, 48, 48, 1),
+//                                  ),
+//                                )
+//                            ),
+//
+//                          ],
+//                        ),
+//                      ),
+//                    )
+//
+//
+//                  ],
+//                ),),)
+//
+//            ],),)
+//            ,));
   }
 }

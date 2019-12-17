@@ -37,12 +37,14 @@ class MainModel extends Model {
   String _messageText = "Waiting for message...";
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  final TextEditingController phoneNumberController = new MaskedTextController(mask: '+34 (00) 000 00 00');
+  final TextEditingController phoneNumberController = new MaskedTextController(mask: '(00) 000 00 00 00');
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
 
   void initFunc(context) {
     loadUserNameData().then((value) {
+
+
       _username = value != null ? value : '';
       if (_username != '') {
         Navigator.of(context).pushReplacementNamed('/list_offers');

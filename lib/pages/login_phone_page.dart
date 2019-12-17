@@ -33,8 +33,6 @@ class LoginPhonePage extends StatefulWidget {
 
 class _LoginPhonePageState extends State<LoginPhonePage> {
 
-//  var controller_mask = new MaskedTextController(mask: '+34(00) 000 00 00');
-
   @override
   void initState() {
     super.initState();
@@ -99,7 +97,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   keyboardType: TextInputType.number,
                                   onSaved: (value) => model.setPhone = value,
                                   onTap: () {
-
+                                    model.phoneNumberController.text = '(34) ';
                                   },
 
                                   style: TextStyle(fontSize: 18,
@@ -109,7 +107,8 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
 //                                        fontFamily: 'Gilroy',
                                     color: Color.fromRGBO(74, 54, 54, 1),
                                   ),
-//                                cursorColor: Colors.white,
+
+                                cursorColor: Colors.redAccent,
                                   decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -135,7 +134,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                       ),
 
 //                                      labelText: 'Telefono',
-                                      hintText: '+34 (00) 000 00 00',
+                                      hintText: '(34) 000 00 00 00',
                                       hintStyle: TextStyle(fontSize: 18,
                                         letterSpacing: 0,
                                         fontWeight: FontWeight.w800,
@@ -156,13 +155,15 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   margin: const EdgeInsets.only(bottom: 1.0),
                                   child: RaisedButton(
                                     onPressed: () {
+                                      print(model.phoneNumberController.text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), ""));
                                       if (model.formKey.currentState.validate()) {
                                         model.formKey.currentState.save();
                                         model.setIsLoading = true;
+
                                         SystemChannels.textInput
                                             .invokeMethod('TextInput.hide');
                                         requestCheckPhone(
-                                            context, model.phoneNumberController.text);
+                                            context, model.phoneNumberController.text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), ""));
                                         model.setIsLoading = false;
                                       }
                                     },
