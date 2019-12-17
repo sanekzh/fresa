@@ -91,7 +91,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
 
   int i = 0;
 
-  ListViewFuncAndroid(listCompany) {
+  ListViewFuncAndroid(listCompany, model) {
     return new ListView.builder(
       shrinkWrap: true,
       itemCount: listCompany.length,
@@ -371,15 +371,22 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                                     fontSize: 10.0)),
                                             color: Colors.redAccent,
                                             onPressed: () {
-                                              var route = new MaterialPageRoute(
-                                                builder: (BuildContext
-                                                        context) =>
-                                                    new Menu(
-                                                        companyName:
-                                                            listCompany[index]
-                                                                .name),
-                                              );
-                                              Navigator.of(context).push(route);
+//                                              var route = new MaterialPageRoute(
+//                                                builder: (BuildContext
+//                                                        context) =>
+//                                                    new Menu(
+//                                                        companyName:
+//                                                            listCompany[index]
+//                                                                .name),
+//                                              );
+//                                              Navigator.of(context).push(route);
+                                              saveLogout();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPhone()),
+                        (Route<dynamic> route) => false,
+                      );
+                      model.setUserName = '';
                                             }),
                                       ),
 
@@ -852,7 +859,7 @@ class _ListOffersPageState extends State<ListOffersPage> {
                   print('andropid');
                   i = 0;
                   return Stack(
-                      children: <Widget>[ListViewFuncAndroid(listCompany)]);
+                      children: <Widget>[ListViewFuncAndroid(listCompany, model)]);
                 } else {
                   print('ios');
                   i = 0;
