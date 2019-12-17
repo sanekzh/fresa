@@ -155,8 +155,8 @@ class _ListOffersPageState extends State<ListOffersPage> {
                             child: new Column(
                               children: <Widget>[
                                 Container(
-                                  height: 275,
-//                                  padding: new EdgeInsets.only(left: 0.0, bottom: 18.0, right: 0.0),
+                                  height: height * 4,
+                                  //                                  padding: new EdgeInsets.only(left: 0.0, bottom: 18.0, right: 0.0),
 //                                  decoration: new BoxDecoration(
 //                                    borderRadius: new BorderRadius.only(
 //                                          topLeft: const Radius.circular(24.0),
@@ -212,7 +212,6 @@ class _ListOffersPageState extends State<ListOffersPage> {
                                         padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
                                         child:  Container(
                                         width: 72,
-                                        height: 36,
                                         decoration: new BoxDecoration(
                                             color:
                                             Color.fromRGBO(195, 48, 48, 1),
