@@ -8,8 +8,8 @@ import 'package:fresa/pages/menu.dart';
 ThemeData buildTheme() {
   final ThemeData base = ThemeData(fontFamily: 'Gilroy');
   return base.copyWith(
-    hintColor: Colors.redAccent,
-    primaryColor: Colors.redAccent,
+//    hintColor: Colors.redAccent,
+//    primaryColor: Colors.grey,
     canvasColor: Colors.transparent,
   );
 }
@@ -34,7 +34,7 @@ class MermelandoApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => LoginPhone(),
-          '/code_registration': (context) => CodeRegistrationPage(),
+          '/code_registration': (context) => CodeRegistration(),
           '/list_offers': (context) => Offer(),
           '/menu': (context) => Menu(),
         },

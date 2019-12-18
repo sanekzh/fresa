@@ -127,8 +127,9 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                           onPressed: null,
                                         ),
                                       ),
-                                      focusColor: Colors.grey,
+                                      focusColor: Colors.green,
                                       border: OutlineInputBorder(
+
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide(
                                           width: 0,
