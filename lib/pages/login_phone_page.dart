@@ -113,7 +113,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                     color: Color.fromRGBO(87, 86, 86, 1),
                                   ),
 
-                                cursorColor: Colors.redAccent,
+                                cursorColor: Colors.grey,
                                   decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -127,7 +127,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                           onPressed: null,
                                         ),
                                       ),
-                                      focusColor: Colors.redAccent,
+                                      focusColor: Colors.grey,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide(

@@ -85,7 +85,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                 controller: _codeController,
                                 hideCharacter: false,
                                 highlight: true,
-                                highlightColor:  Color.fromRGBO(195, 48, 48, 1),
+                                highlightColor:  Colors.grey,
                                 defaultBorderColor: Colors.white,
                                 hasTextBorderColor: Colors.white,
                                 maxLength: 4,
