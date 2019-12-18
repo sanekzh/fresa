@@ -93,6 +93,11 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
 //                                      return 'Please enter phone';
 //                                    }
 //                                  },
+                                  onChanged: (text) {
+                                    if (text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), "").length == 11) {
+                                      FocusScope.of(context).requestFocus(FocusNode());
+                                    }
+                                  },
                                   controller: model.phoneNumberController,
                                   keyboardType: TextInputType.number,
                                   onSaved: (value) => model.setPhone = value,
@@ -105,7 +110,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                     fontWeight: FontWeight.w800,
 //                                  color: Colors.grey,
 //                                        fontFamily: 'Gilroy',
-                                    color: Color.fromRGBO(74, 54, 54, 1),
+                                    color: Color.fromRGBO(87, 86, 86, 1),
                                   ),
 
                                 cursorColor: Colors.redAccent,

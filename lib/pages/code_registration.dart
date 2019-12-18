@@ -87,7 +87,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                 highlight: true,
                                 highlightColor:  Color.fromRGBO(195, 48, 48, 1),
                                 defaultBorderColor: Colors.white,
-                                hasTextBorderColor: Colors.redAccent,
+                                hasTextBorderColor: Colors.white,
                                 maxLength: 4,
                                 onTextChanged: (text) {
                                   setState(() {
@@ -106,7 +106,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                 pinBoxColor: Colors.white,
                                 pinBoxWidth: 50,
                                 pinBoxBorderWidth: 2,
-                                pinTextStyle: TextStyle(fontSize: 30.0, color: Color.fromRGBO(74, 54, 54, 1),),
+                                pinTextStyle: TextStyle(fontSize: 30.0, color:  Color.fromRGBO(87, 86, 86, 1),),
                                 pinTextAnimatedSwitcherTransition: ProvidedPinBoxTextAnimation.scalingTransition,
                                 pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
                               ),
