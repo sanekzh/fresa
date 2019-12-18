@@ -40,6 +40,8 @@ dependencies:
   scoped_model: ^1.0.1
   flutter_svg: ^0.14.3
   pin_code_text_field: ^1.5.0
+  flushbar: ^1.9.1
+
 
 dev_dependencies:
   flutter_test:

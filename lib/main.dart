@@ -34,7 +34,7 @@ class MermelandoApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => LoginPhone(),
-          '/code_registration': (context) => CodeRegistrationPage(),
+          '/code_registration': (context) => CodeRegistration(),
           '/list_offers': (context) => Offer(),
           '/menu': (context) => Menu(),
         },
