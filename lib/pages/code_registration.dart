@@ -66,8 +66,8 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
       controller: _codeController,
       hideCharacter: false,
       highlight: true,
-      highlightColor:  Color.fromRGBO(135, 135, 135, 1),
-      defaultBorderColor: Colors.white,
+      highlightColor:  widget.model.errorCode ? Colors.redAccent : Color.fromRGBO(135, 135, 135, 1),
+      defaultBorderColor: widget.model.errorCode ? Colors.redAccent : Colors.white,
       hasTextBorderColor: widget.model.errorCode ? Colors.redAccent : Colors.white,
       maxLength: 4,
       onTextChanged: (text) {
