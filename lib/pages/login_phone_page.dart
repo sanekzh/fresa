@@ -103,6 +103,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   onSaved: (value) => model.setPhone = value,
                                   onTap: () {
                                     model.phoneNumberController.text = '(34) ';
+                                    model.setErrorPhone = false;
                                   },
 
                                   style: TextStyle(fontSize: 18,
@@ -115,9 +116,15 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
 
                                 cursorColor: Colors.grey,
                                   decoration: InputDecoration(
+                                      focusedBorder:OutlineInputBorder(
+                                        borderSide: const BorderSide(color: Colors.grey, width: 1),
+                                        borderRadius: BorderRadius.circular(12.0),
+                                      ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(12)),
-                                        borderSide: BorderSide(width: 1,color: Colors.white),
+                                        borderSide: BorderSide(
+                                            width: 2,
+                                            color: model.errorPhone ? Colors.redAccent : Colors.white),
                                       ),
                                       contentPadding: new EdgeInsets.symmetric(vertical: 22.0, horizontal: 10.0),
                                       prefixIcon: Padding(
@@ -127,7 +134,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                           onPressed: null,
                                         ),
                                       ),
-                                      focusColor: Colors.green,
+                                      focusColor: Colors.grey,
                                       border: OutlineInputBorder(
 
                                         borderRadius: BorderRadius.circular(12),
@@ -169,7 +176,8 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                         SystemChannels.textInput
                                             .invokeMethod('TextInput.hide');
                                         requestCheckPhone(
-                                            context, model.phoneNumberController.text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), ""));
+                                            context, model.phoneNumberController.text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), ""),
+                                        model);
                                         model.setIsLoading = false;
                                       }
                                     },

@@ -32,6 +32,13 @@ class MainModel extends Model {
     notifyListeners();
   }
 
+  bool _errorPhone = false;
+  get errorPhone => _errorPhone;
+  set setErrorPhone(bool load){
+    _errorPhone = load;
+    notifyListeners();
+  }
+
   String _username = '';
   get userName => _username;
   set setUserName(String str){

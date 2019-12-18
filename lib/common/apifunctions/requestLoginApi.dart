@@ -163,7 +163,7 @@ Future<bool> requestLogIn(BuildContext context, String phone, String code, MainM
 
 }
 
-requestCheckPhone(BuildContext context, String phone) async {
+requestCheckPhone(BuildContext context, String phone, MainModel model) async {
   final url_authorization =
       "http://api.mermelando.es/api/customer/authorization/";
   Map<String, String> body_authorization = {
@@ -211,6 +211,8 @@ requestCheckPhone(BuildContext context, String phone) async {
         style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w700),
       ),
     )..show(context);
+    model.setErrorPhone = true;
+
 //    showDialogSingleButton(
 //        context, "Error autorization", "${responseJson['error']}", "OK");
     return null;
