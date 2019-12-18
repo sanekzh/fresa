@@ -25,12 +25,21 @@ class MainModel extends Model {
     notifyListeners();
   }
 
+  bool _errorCode = false;
+  get errorCode => _errorCode;
+  set setErrorCode(bool load){
+    _errorCode = load;
+    notifyListeners();
+  }
+
   String _username = '';
   get userName => _username;
   set setUserName(String str){
     _username = str;
     notifyListeners();
   }
+
+
 
 //  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   String _homeScreenText = "Waiting for token...";

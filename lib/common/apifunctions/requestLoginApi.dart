@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flushbar/flushbar.dart';
+import 'package:fresa/bloc/main_model.dart';
 import 'package:fresa/common/functions/getToken.dart';
 import 'package:flutter/material.dart';
 import 'package:fresa/models/company.dart';
@@ -93,7 +95,7 @@ requestPasswordSet(
   }
 }
 
-requestLogIn(BuildContext context, String phone, String code,) async {
+Future<bool> requestLogIn(BuildContext context, String phone, String code, MainModel model) async {
   final url_authorize = "http://api.mermelando.es/api/customer/authorize/";
   final body_authorize = {"phone": phone, "code": code};
   print("sxcfsdfc");
@@ -116,20 +118,45 @@ requestLogIn(BuildContext context, String phone, String code,) async {
   }else{
 //        saveCurrentLogin(responseJson);
     print(responseJson);
-    Map dict = json.decode(response.body)['error'];
-          String text = '';
-          if (dict.containsKey('password')){
-            text = dict['password'];
-          } else if (dict.containsKey('name')){
-            text = dict['name'];
-          } else if (dict.containsKey('detail')){
-            text = dict['detail'];
-          } else if (dict.containsKey('phone')){
-            text = dict['phone'];
-          }
-    showDialogSingleButton(
-        context, "Error autorization", "${text}", "OK");
+    String text = '';
+    if (json.decode(response.body)['error'] is Map){
+      Map dict = json.decode(response.body)['error'];
 
+      if (dict.containsKey('password')){
+        text = dict['password'];
+      } else if (dict.containsKey('name')){
+        text = dict['name'];
+      } else if (dict.containsKey('detail')){
+        text = dict['detail'];
+      } else if (dict.containsKey('phone')){
+        text = dict['phone'];
+      }
+      print("text error ${text}");
+    } else {
+      text = responseJson['error'];
+    }
+
+    Flushbar(
+//                                          title: "Hey Ninja",
+//                                          message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+      flushbarPosition: FlushbarPosition.TOP,
+      flushbarStyle: FlushbarStyle.FLOATING,
+      reverseAnimationCurve: Curves.decelerate,
+      forwardAnimationCurve: Curves.bounceIn,
+      backgroundColor: Colors.redAccent,
+//                                          boxShadows: [BoxShadow(color: Colors.blue[800], offset: Offset(0.0, 2.0), blurRadius: 3.0)],
+//                                          backgroundGradient: LinearGradient(colors: [Colors.blueGrey, Colors.black]),
+      isDismissible: false,
+      duration: Duration(seconds: 3),
+      messageText: Text(
+        "${text}",
+        style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w700),
+      ),
+    )..show(context);
+    model.setErrorCode = true;
+//    showDialogSingleButton(
+//        context, "Error autorization", "${text}", "OK");
+      return false;
   }
 
   return true;
@@ -152,13 +179,13 @@ requestCheckPhone(BuildContext context, String phone) async {
     print(responseJson);
     if (responseJson['status'] == 'new') {
       var route = new MaterialPageRoute(
-        builder: (BuildContext context) => new CodeRegistrationPage(
+        builder: (BuildContext context) => new CodeRegistration(
             phone: phone, status: responseJson['status']),
       );
       Navigator.of(context).push(route);
     } else if (responseJson['status'] == 'exist') {
       var route = new MaterialPageRoute(
-        builder: (BuildContext context) => new CodeRegistrationPage(
+        builder: (BuildContext context) => new CodeRegistration(
             phone: phone, status: responseJson['status']),
       );
       Navigator.of(context).push(route);
@@ -167,8 +194,26 @@ requestCheckPhone(BuildContext context, String phone) async {
     final responseJson = json.decode(response.body);
 //        saveCurrentLogin(responseJson);
     print(responseJson);
-    showDialogSingleButton(
-        context, "Error autorization", "${responseJson['error']}", "OK");
+    Flushbar(
+//                                          title: "Hey Ninja",
+//                                          message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+      flushbarPosition: FlushbarPosition.TOP,
+      flushbarStyle: FlushbarStyle.FLOATING,
+      reverseAnimationCurve: Curves.decelerate,
+      forwardAnimationCurve: Curves.bounceIn,
+      backgroundColor: Colors.red,
+//                                          boxShadows: [BoxShadow(color: Colors.blue[800], offset: Offset(0.0, 2.0), blurRadius: 3.0)],
+//                                          backgroundGradient: LinearGradient(colors: [Colors.blueGrey, Colors.black]),
+      isDismissible: false,
+      duration: Duration(seconds: 3),
+      messageText: Text(
+        "${responseJson['error']}",
+        style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w700),
+      ),
+    )..show(context);
+//    showDialogSingleButton(
+//        context, "Error autorization", "${responseJson['error']}", "OK");
     return null;
   }
 }
+
