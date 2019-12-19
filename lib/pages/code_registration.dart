@@ -47,7 +47,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String code = '', password = '', password2 = '';
+  String new_code = '', password = '', password2 = '';
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -166,23 +166,28 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
 //                                    }
 //                                  },
       onChanged: (text) {
-        if (text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), "").length == 11) {
+        print(text);
+
+        widget.model.setErrorCode = false;
+        if(text.length == 4 && new_code != ''){
           FocusScope.of(context).requestFocus(FocusNode());
         }
-        print(text);
-//        if(text.length == 4){
-//          FocusScope.of(context).requestFocus(FocusNode());
-//        }
+                new_code = text;
+//        print(widget.model.codeController.text);
       },
+
       maxLength: 4,
       controller: widget.model.codeController,
       keyboardType: TextInputType.number,
-      onSaved: (value) => widget.model.setPhone = value,
+      onSaved: (value) => widget.model.setCode = value,
       onTap: () {
-        widget.model.setErrorPhone = false;
+        if(widget.model.code != new_code){
+          widget.model.setErrorCode = false;
+
+        }
       },
 
-      style: TextStyle(fontSize: 30,
+      style: TextStyle(fontSize: 28,
         letterSpacing: 15,
         fontWeight: FontWeight.w800,
 //                                  color: Colors.grey,
@@ -202,9 +207,9 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
             borderRadius: BorderRadius.all(Radius.circular(12)),
             borderSide: BorderSide(
                 width: 2,
-                color: widget.model.errorPhone ? Colors.redAccent : Colors.white),
+                color: widget.model.errorCode ? Colors.redAccent : Colors.white),
           ),
-          contentPadding: new EdgeInsets.symmetric(vertical: 18.0, horizontal: 34.0),
+          contentPadding: new EdgeInsets.symmetric(vertical: 18.0, horizontal: 40.0),
 //          prefixIcon: Padding(
 //            padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
 //            child:  new IconButton(
@@ -226,7 +231,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
 
 //                                      labelText: 'Telefono',
           hintText: '0 0 0 0',
-          hintStyle: TextStyle(fontSize: 30,
+          hintStyle: TextStyle(fontSize: 25,
             letterSpacing: 5,
             fontWeight: FontWeight.w800,
             color: Colors.grey,
@@ -310,7 +315,7 @@ class _CodeRegistrationPageState extends State<CodeRegistrationPage> {
                                             '${widget.model.codeController.text}');
                                         SystemChannels.textInput
                                             .invokeMethod('TextInput.hide');
-                                        print(code);
+                                        print(new_code);
                                         print(widget.model.codeController.text);
 
                                         requestLogIn(context, widget.phone, widget.model.codeController.text, widget.model);

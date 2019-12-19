@@ -18,6 +18,13 @@ class MainModel extends Model {
     notifyListeners();
   }
 
+  String _code = '';
+  get code => _code;
+  set setCode(String str){
+    _code = str;
+    notifyListeners();
+  }
+
   bool _isLoading = false;
   get isLoading => _isLoading;
   set setIsLoading(bool load){
