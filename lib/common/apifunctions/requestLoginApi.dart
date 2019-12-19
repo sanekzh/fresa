@@ -136,23 +136,8 @@ Future<bool> requestLogIn(BuildContext context, String phone, String code, MainM
       text = responseJson['error'];
     }
 
-    Flushbar(
-//                                          title: "Hey Ninja",
-//                                          message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      flushbarPosition: FlushbarPosition.TOP,
-      flushbarStyle: FlushbarStyle.FLOATING,
-      reverseAnimationCurve: Curves.decelerate,
-      forwardAnimationCurve: Curves.bounceIn,
-      backgroundColor: Colors.redAccent,
-//                                          boxShadows: [BoxShadow(color: Colors.blue[800], offset: Offset(0.0, 2.0), blurRadius: 3.0)],
-//                                          backgroundGradient: LinearGradient(colors: [Colors.blueGrey, Colors.black]),
-      isDismissible: false,
-      duration: Duration(seconds: 3),
-      messageText: Text(
-        "${text}",
-        style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w700),
-      ),
-    )..show(context);
+    showError(context, responseJson['error']);
+
     model.setErrorCode = true;
 //    showDialogSingleButton(
 //        context, "Error autorization", "${text}", "OK");
@@ -194,23 +179,7 @@ requestCheckPhone(BuildContext context, String phone, MainModel model) async {
     final responseJson = json.decode(response.body);
 //        saveCurrentLogin(responseJson);
     print(responseJson);
-    Flushbar(
-//                                          title: "Hey Ninja",
-//                                          message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      flushbarPosition: FlushbarPosition.TOP,
-      flushbarStyle: FlushbarStyle.FLOATING,
-      reverseAnimationCurve: Curves.decelerate,
-      forwardAnimationCurve: Curves.bounceIn,
-      backgroundColor: Colors.red,
-//                                          boxShadows: [BoxShadow(color: Colors.blue[800], offset: Offset(0.0, 2.0), blurRadius: 3.0)],
-//                                          backgroundGradient: LinearGradient(colors: [Colors.blueGrey, Colors.black]),
-      isDismissible: false,
-      duration: Duration(seconds: 3),
-      messageText: Text(
-        "${responseJson['error']}",
-        style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w700),
-      ),
-    )..show(context);
+    showError(context, responseJson['error']);
     model.setErrorPhone = true;
 
 //    showDialogSingleButton(
@@ -219,3 +188,24 @@ requestCheckPhone(BuildContext context, String phone, MainModel model) async {
   }
 }
 
+showError(context, text){
+  Flushbar(
+//                                          title: "Hey Ninja",
+//                                          message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+    flushbarPosition: FlushbarPosition.TOP,
+    flushbarStyle: FlushbarStyle.FLOATING,
+    reverseAnimationCurve: Curves.decelerate,
+    forwardAnimationCurve: Curves.bounceIn,
+    backgroundColor: Colors.redAccent,
+    borderRadius: 8,
+    margin: EdgeInsets.all(8),
+//                                          boxShadows: [BoxShadow(color: Colors.blue[800], offset: Offset(0.0, 2.0), blurRadius: 3.0)],
+//                                          backgroundGradient: LinearGradient(colors: [Colors.blueGrey, Colors.black]),
+    isDismissible: false,
+    duration: Duration(seconds: 3),
+    messageText: Text(
+      "${text}",
+      style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w700),
+    ),
+  )..show(context);
+}

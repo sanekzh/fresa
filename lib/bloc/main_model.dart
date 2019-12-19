@@ -54,6 +54,8 @@ class MainModel extends Model {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController phoneNumberController = new MaskedTextController(mask: '(00) 000 00 00 00');
+  final TextEditingController codeController = TextEditingController();
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
 
