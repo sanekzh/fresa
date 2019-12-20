@@ -5,6 +5,8 @@ import 'package:fresa/common/apifunctions/requestLoginApi.dart';
 import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
 
 
 
@@ -32,6 +34,7 @@ class LoginPhonePage extends StatefulWidget {
 }
 
 class _LoginPhonePageState extends State<LoginPhonePage> {
+  var maskFormatter = new MaskTextInputFormatter(mask: '### ## ## ##', filter: { "#": RegExp(r'[0-9]') });
 
   @override
   void initState() {
@@ -63,11 +66,12 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
               alignment: FractionalOffset.center,
             )
                 :
-            Container(child: Column(children: <Widget>[
+            Container(
+              child: Column(children: <Widget>[
               Padding(
                 padding: EdgeInsets.fromLTRB(90.0, 70.0, 90.0, 10.0),
                 child:  Center(
-                  child: Image.asset('res/images/logo_m.png',),
+                  child: Image.asset('res/images/logo_m.png',width: 112, height: 107,),
                 ),
               ),Flexible(child:  SingleChildScrollView(
                 reverse: true,
@@ -84,7 +88,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                         child: Column(
                           children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.fromLTRB(10.0, 110.0, 10.0, 40.0),
+                              padding: EdgeInsets.fromLTRB(10.0, 145.0, 10.0, 30.0),
 
                               child: TextFormField(
 
@@ -93,16 +97,40 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
 //                                      return 'Please enter phone';
 //                                    }
 //                                  },
+                                  inputFormatters: [maskFormatter],
+                              autocorrect: false,
                                   onChanged: (text) {
-                                    if (text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), "").length == 11) {
-                                      FocusScope.of(context).requestFocus(FocusNode());
-                                    }
+//                                    if (text.length == 4){
+////                                      model.phoneNumberController.text = '(34) ';
+//                                      var cursorPos = model.phoneNumberController.selection;
+//                                      setState(() {
+//                                        model.phoneNumberController.text = '(34) ';
+//print(cursorPos.end);
+//                                        if (cursorPos.end > '(34) '.length) {
+//                                          cursorPos = new TextSelection.fromPosition(
+//                                              new TextPosition(offset: '(34) '.length));
+//                                        }
+////                                        cursorPos.start = 5;
+//                                        model.phoneNumberController.selection = cursorPos;
+//                                      });
+//                                      model.phoneNumberController.value = model.phoneNumberController.value.copyWith(text: '(34) ', selection:TextSelection.fromPosition(
+//                                          new TextPosition(offset: '(34) '.length)));
+//
+//                                    }
+//                                    if (text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), "").length == 11) {
+//                                      FocusScope.of(context).requestFocus(FocusNode());
+//                                    }
                                   },
+
                                   controller: model.phoneNumberController,
                                   keyboardType: TextInputType.number,
+//                                  inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+
                                   onSaved: (value) => model.setPhone = value,
                                   onTap: () {
-                                    model.phoneNumberController.text = '(34) ';
+//                                    if (model.phoneNumberController.text.length <= 5 ){
+//                                      model.phoneNumberController.text = '(34) ';
+//                                    }
                                     model.setErrorPhone = false;
                                   },
 
@@ -127,12 +155,35 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                             color: model.errorPhone ? Colors.redAccent : Colors.white),
                                       ),
                                       contentPadding: new EdgeInsets.symmetric(vertical: 22.0, horizontal: 10.0),
-                                      prefixIcon: Padding(
+//                                      prefixIcon:
+//                                      Padding(
+//                                        padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
+//                                        child: Image.asset('res/images/34.png', width: 23.0, height: 23.0,),
+//                                      ),
+                                      prefixIcon:
+                                      Padding(
                                         padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
-                                        child:  new IconButton(
-                                          icon: new SvgPicture.asset('res/images/phone_24px_rounded.svg',width: 23.0,height: 23.0,),
-                                          onPressed: null,
-                                        ),
+                                        child: Container(
+                                          width: 85,
+                                            child: Row(children: <Widget>[
+                                          IconButton(
+                                            icon: new SvgPicture.asset('res/images/phone_24px_rounded.svg',width: 23.0,height: 23.0,),
+                                            onPressed: null
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 1.0),
+                                            child: Text('(34) ', style: TextStyle(fontSize: 18,
+                                              letterSpacing: 0,
+                                              fontWeight: FontWeight.w800,
+//                                  color: Colors.grey,
+                                              fontFamily: 'Gilroy',
+                                              color: Color.fromRGBO(87, 86, 86, 1),
+                                            ),),
+                                          )
+
+                                        ],)
+                                        )
+
                                       ),
                                       focusColor: Colors.grey,
                                       border: OutlineInputBorder(
@@ -147,7 +198,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                       ),
 
 //                                      labelText: 'Telefono',
-                                      hintText: '(34) 000 00 00 00',
+                                      hintText: '000 00 00 00',
                                       hintStyle: TextStyle(fontSize: 18,
                                         letterSpacing: 0,
                                         fontWeight: FontWeight.w800,
@@ -156,7 +207,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
 //                                        color: Color.fromRGBO(74, 54, 54, 1),
                                       ),
                                       filled: true,
-                                      fillColor: Colors.white70
+                                      fillColor: Colors.white
                                   )
                               ),
                             ),
@@ -168,6 +219,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                   margin: const EdgeInsets.only(bottom: 1.0),
                                   child: RaisedButton(
                                     onPressed: () {
+                                      FocusScope.of(context).requestFocus(FocusNode());
                                       print(model.phoneNumberController.text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), ""));
                                       if (model.formKey.currentState.validate()) {
                                         model.formKey.currentState.save();
@@ -176,7 +228,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                         SystemChannels.textInput
                                             .invokeMethod('TextInput.hide');
                                         requestCheckPhone(
-                                            context, model.phoneNumberController.text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), ""),
+                                            context, '34' + model.phoneNumberController.text.replaceAll(new RegExp(r"[^\d]|\s+\b|\b\s"), ""),
                                         model);
                                         model.setIsLoading = false;
                                       }
@@ -189,7 +241,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                         style: TextStyle(
                                             fontWeight: FontWeight.w900,
                                             fontStyle: FontStyle.normal,
-                                            letterSpacing: 1.5,
+                                            letterSpacing: 1,
 //                                    fontFamily: 'Gilroy',
                                             color: Colors.white, height: 1, fontSize: 18.0
                                         )

@@ -5,7 +5,7 @@ import 'package:fresa/resources/repository.dart';
 import 'package:scoped_model/scoped_model.dart';
 //import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
+//import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 
 class MainModel extends Model {
@@ -60,13 +60,16 @@ class MainModel extends Model {
   String _messageText = "Waiting for message...";
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  final TextEditingController phoneNumberController = new MaskedTextController(mask: '(00) 000 00 00 00');
+  final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController codeController = TextEditingController();
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  void initFuncCode(context){
+    codeController.text = "";
+  }
 
   void initFunc(context) {
+    phoneNumberController.text = "";
     loadUserNameData().then((value) {
 
 
